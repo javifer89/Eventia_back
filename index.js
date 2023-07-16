@@ -6,6 +6,9 @@ const app = require('./src/app');
 //Configuración de .env
 require('dotenv').config();
 
+//Configuración de la BBDD
+require('/.src/config/db');
+
 //Creación del servidor
 const server = http.createServer(app)
 
