@@ -2,7 +2,7 @@ const Usuario = require("../models/usuarios.model");
 
 const getById = async (req, res) => {
   try {
-    const [usuarios] = await Usuario.usuarioByid(req.params.idusuario);
+    const [usuarios] = await Usuario.usuarioByid(req.params.usuarioId);
     if (usuarios.length === 0) {
       return res.json({ fatal: "no existe este usuario" });
     }
@@ -34,8 +34,27 @@ const remove = async (req, res) => {
   }
 };
 
+
+const update = async (req, res) => {
+  try {
+    const { usuarioId } = req.params
+    const [result] = await Usuario.updateById(usuarioId, req.body)
+
+    //Puedo devolver el usuario modificado cuando tenga el geyById de gustavo. 
+    const [usuarios] = await Usuario.getById(usuarioId);
+
+    res.json(usuarios[0])
+
+  } catch (error) {
+    res.json({ fatal: error.message })
+  }
+}
+
 module.exports = {
   remove,
   getById,
   getByDni,
+  update
 };
+
+

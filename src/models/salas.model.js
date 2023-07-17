@@ -26,10 +26,24 @@ const deleteById = (staffId) => {
   return db.query("delete from staff where id = ?", [staffId]);
 };
 
+
+const getById = (salaId) => {
+  return db.query('select * from salas where id = ?', [salaId])
+}
+
+const updateById = (salaId, { precio, disponible, aforo, nombre, direccion }) => {
+  return db.query('update salas set precio = ?, disponible = ?, aforo = ?, nombre = ?, direccion = ?',
+    [precio, disponible, aforo, nombre, direccion, salaId])
+
+}
+
+
 module.exports = {
   salasReservadas,
   salasLibres,
   usuarioSala,
   salaByid,
   deleteById,
+  updateById,
+  getById
 };

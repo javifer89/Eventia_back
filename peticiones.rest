@@ -20,6 +20,18 @@ GET {{host}}:{{port}}{{apiSalas}}/usuario/3
 GET {{host}}:{{port}}{{apiSalas}}/usersala
 
 ###
+PUT {{host}}:{{port}}{{apiSalas}}/1
+Content-Type: application/json
+
+{
+  "precio": "150",
+  "disponible": true,
+  "aforo": 60,
+  "nombre": "Una Sala",
+  "direccion": "Casa Mario, 123"
+}
+
+###
 DELETE {{host}}:{{port}}{{apiSalas}}/5
 
 #########################
@@ -31,6 +43,23 @@ GET {{host}}:{{port}}{{apiUsuarios}}/usuario/3
 ###
 
 GET {{host}}:{{port}}{{apiUsuarios}}/987654321-B
+
+###
+
+PUT {{host}}:{{port}}{{apiUsuarios}}/6
+Content-Type: application/json
+
+{
+  "username": "lolillo",
+  "email": "pepe2@gmail.com",
+  "telefono": "626626626",
+  "dni": "53601579h",
+  "password": "pepe",
+  "nombre": "Er Pepe",
+  "direccion": "Calle esta app me saca de mis casillas"
+}
+
+###
 
 ###
 DELETE {{host}}:{{port}}{{apiUsuarios}}/2
@@ -46,4 +75,25 @@ GET {{host}}:{{port}}{{apiStaff}}/2
 GET {{host}}:{{port}}{{apiStaff}}/staff/pedritogar
 
 ###
+
+PUT {{host}}:{{port}}{{apiStaff}}/6
+Content-Type: application/json
+
+{
+  "nombre": "anananana",
+  "rol": "trabajador",
+  "usuario": "anaita",
+  "nombre": "La Ana",
+  "password": "La Ana",
+  "email": "anacaces@ana.com"
+}
+
+###
 DELETE {{host}}:{{port}}{{apiStaff}}/2
+
+
+
+
+
+
+

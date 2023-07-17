@@ -1,9 +1,9 @@
-const idStaff = (staffId) => {
+const getStaffById = (staffId) => {
   return db.query("select * from staff where id = ?", [staffId]);
 };
 
-const usuarioStaff = (user) => {
-  return db.query("select * from staff where usuario = ?", [user]);
+const getByUsuario = (userName) => {
+  return db.query("select * from staff where usuario = ?", [userName]);
 };
 
 /**
@@ -16,8 +16,22 @@ const deleteById = (staffId) => {
   return db.query("delete from staff where id = ?", [staffId]);
 };
 
+
+const getById = (staffId) => {
+  return db.query('select * from staff where id = ?', [staffId]) //donde va el valor que es variable ponemos un ?
+}
+
+const updateById = (staffId, { nombre, rol, usuario, password, email }) => {
+  return db.query('update staff set nombre = ?, rol = ?, usuario = ?, password = ?, email = ?',
+    [nombre, rol, usuario, password, email, staffId])
+
+}
+
+
 module.exports = {
-  idStaff,
-  usuarioStaff,
+  getStaffById,
+  getByUsuario,
   deleteById,
+  updateById,
+  getById
 };

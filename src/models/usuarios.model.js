@@ -13,9 +13,20 @@ const usuarioByDNI = (dni) => {
 * @returns {Promise} Una promesa que se resuelve cuando la eliminación ha sido completada.
 */
 const deleteById = (usuarioId) => {
-  return db.query("delete from usuarios where id = ?", [usuarioId]);
+    return db.query("delete from usuarios where id = ?", [usuarioId]);
 };
 
+
+const getById = (usuarioId) => {
+    return db.query('select * from usuarios where id = ?', [usuarioId]) //donde va el valor que es variable ponemos un ?
+}
+
+const updateById = (usuarioId, { username, email, telefono, dni, password, nombre, direccion }) => {
+    return db.query('update usuarios set username = ?, email = ?, telefono = ?, dni = ?, password = ?, nombre = ?, direccion = ? where id = ?',
+        [username, email, telefono, dni, password, nombre, direccion, usuarioId])
+
+}
+
 module.exports = {
-    usuarioByid, usuarioByDNI, deleteById
+    usuarioByid, usuarioByDNI, deleteById, updateById, getById
 }

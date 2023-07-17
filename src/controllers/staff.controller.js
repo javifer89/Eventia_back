@@ -2,7 +2,7 @@ const Staff = require("../models/staff.model");
 
 const getById = async (req, res) => {
   try {
-    const [staffs] = await Staff.idStaff(req.params.idStaff);
+    const [staffs] = await Staff.getStaffById(req.params.staffId);
     if (staff.length === 0) {
       return res.json({ fatal: "no existe este empleado" });
     }
@@ -13,9 +13,8 @@ const getById = async (req, res) => {
 };
 
 const getByUser = async (req, res) => {
-  console.log(req);
   try {
-    const [staffs] = await Staff.usuarioStaff(req.params.usuario);
+    const [staffs] = await Staff.getByUsuario(req.params.usuario);
     if (staffs.length === 0) {
       return res.json({ fatal: "no existe este usuario" });
     }
@@ -36,8 +35,25 @@ const remove = async (req, res) => {
   }
 };
 
+const update = async (req, res) => {
+  try {
+    const { staffId } = req.params
+    const [result] = await Staff.updateById(staffId, req.body)
+
+    //Puedo devolver el usuario modificado cuando tenga el geyById de gustavo. 
+    const [usuarios] = await Staff.getById(usuarioId);
+
+    res.json(result[0])
+
+  } catch (error) {
+    res.json({ fatal: error.message })
+  }
+}
+
 module.exports = {
   getById,
   getByUser,
   remove,
+  update
 };
+

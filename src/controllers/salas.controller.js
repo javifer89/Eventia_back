@@ -20,7 +20,7 @@ const getLibres = async (req, res) => {
 
 const getById = async (req, res) => {
   try {
-    const [salas] = await Sala.salaByid(req.params.idsala);
+    const [salas] = await Sala.salaByid(req.params.salaId);
     if (salas.length === 0) {
       return res.json({ fatal: "no existe esta sala" });
     }
@@ -49,10 +49,28 @@ const remove = async (req, res) => {
   }
 };
 
+const update = async (req, res) => {
+  try {
+    const { salaId } = req.params
+    const [result] = await Sala.updateById(salaId, req.body)
+
+    //Puedo devolver el usuario modificado cuando tenga el geyById de gustavo.
+    const [salas] = await Sala.getById(salaId);
+
+    res.json(salas[0])
+
+  } catch (error) {
+    res.json({ fatal: error.message })
+  }
+}
 module.exports = {
   getReservadas,
   getLibres,
   getByUsuario,
   getById,
   remove,
+  update
 };
+
+
+
