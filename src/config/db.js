@@ -5,7 +5,7 @@ const mysql = require('mysql2');
 const pool = mysql.createPool({
     host: '127.0.0.1', //este es el local host
     user: 'root',
-    password: '198944',
+    password: 'Donata18.',
     port: 3306,
     database: 'espacios_culturales',
 });
