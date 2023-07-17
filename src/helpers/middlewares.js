@@ -1,18 +1,19 @@
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 const Usuario = require("../models/usuarios.model");
 const Staff = require("../models/staff.model");
 
 
-// const checkUsuarioId = async (req, res, next) => {
-//   const { UsuarioId } = req.params;
-//   const [usuarios] = await Usuario.getById(usuarioId);
+const checkUsuarioId = async (req, res, next) => {
+  const { UsuarioId } = req.params;
+  const [usuarios] = await Usuario.getById(usuarioId);
 
-//   if (usuarios.length === 0) {
-//     return res.send({ fatal: "El usuario no existe" });
-//   }
-//   next();
-// };
+  if (usuarios.length === 0) {
+    return res.send({ fatal: "El usuario no existe" });
+  }
+  next();
+};
 
 const checkToken = async (req, res, next) => {
   //1. comprobamos si el token viene incluido en la petición (headers -Authorization)
@@ -63,7 +64,7 @@ const checkLogin = async (req, res) => {
 
 
 module.exports = {
-  // checkUsuarioId,
+  checkUsuarioId,
   checkToken,
   checkLogin
 };

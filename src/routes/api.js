@@ -1,10 +1,12 @@
 const router = require('express').Router();
 
-router.use('/usuarios', require('./api/usuarios'));
+const { checkToken } = require("../helpers/middlewares");
 
-router.use('/salas', require('./api/salas'));
+router.use("/usuarios", checkToken, require("./api/usuarios"));
 
-router.use('/staff', require('./api/staff'));
+router.use("/salas", checkToken, require("./api/salas"));
+
+router.use("/staff", checkToken, require("./api/staff"));
 
 
 module.exports = router;

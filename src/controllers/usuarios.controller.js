@@ -46,7 +46,7 @@ const update = async (req, res) => {
         const { usuarioId } = req.params
         const [result] = await Usuario.updateById(usuarioId, req.body)
 
-        //Puedo devolver el usuario modificado cuando tenga el geyById de gustavo. 
+        //Puedo devolver el usuario modificado cuando tenga el geyById de gustavo.
         const [usuarios] = await Usuario.getById(usuarioId);
 
         res.json(usuarios[0])
@@ -57,6 +57,7 @@ const update = async (req, res) => {
 }
 
 
+//TODO Meter bcrypt para comprobar contraseñas en el usuario??
 const create = async (req, res) => {
     console.log(req.body)
     try {
