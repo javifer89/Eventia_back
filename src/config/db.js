@@ -7,7 +7,7 @@ const pool = mysql.createPool({
     user: process.env.USERDB,
     password: process.env.PASSDB,
     port: process.env.PORTDB,
-    database: process.env.DBNAME,
+    database: process.env.DBNAME
 });
 
 //12 necesito que el pool este disponible desde cualquier punto de mi app. creo una variable glogal para toda la app

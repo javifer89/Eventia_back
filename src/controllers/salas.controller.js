@@ -40,16 +40,22 @@ const getByUsuario = async (req, res) => {
 };
 
 const remove = async (req, res) => {
+  console.log(req.params)
   try {
     const { salaId } = req.params;
+    const [salas] = await Sala.getById(salaId);
     const [result] = await Sala.deleteById(salaId);
-    res.json(result);
+
+    res.json(salas[0])
+    res.send(result)
+
   } catch (error) {
     res.json({ fatal: error.message });
   }
 };
 
 const update = async (req, res) => {
+  console.log(req.params)
   try {
     const { salaId } = req.params
     const [result] = await Sala.updateById(salaId, req.body)
@@ -63,14 +69,27 @@ const update = async (req, res) => {
     res.json({ fatal: error.message })
   }
 }
+
+const create = async (req, res) => {
+  try {
+    const [result] = await Sala.insert(req.body);
+    const [usuarios] = await Usuario.getById(usuarioId);
+
+    res.json(usuarios[0])
+
+  } catch (error) {
+    res.json({ errorcito: error.message });
+  }
+}
+
+
 module.exports = {
   getReservadas,
   getLibres,
   getByUsuario,
   getById,
   remove,
-  update
+  update,
+  create
 };
-
-
 

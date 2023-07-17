@@ -16,20 +16,16 @@ const usuarioSala = (id) => {
   ]);
 };
 
-/**
- * Elimina un miembro del staff de la base de datos por su ID.
- *
- * @param {number|string} staffId - El ID del miembro del staff que se va a eliminar.
- * @returns {Promise} Una promesa que se resuelve cuando la eliminación ha sido completada.
- */
-const deleteById = (staffId) => {
-  return db.query("delete from staff where id = ?", [staffId]);
+
+const deleteById = (salaId) => {
+  return db.query("delete from salas where id = ?", [salaId]);
 };
 
 
 const getById = (salaId) => {
   return db.query('select * from salas where id = ?', [salaId])
 }
+
 
 const updateById = (salaId, { precio, disponible, aforo, nombre, direccion }) => {
   return db.query('update salas set precio = ?, disponible = ?, aforo = ?, nombre = ?, direccion = ?',
@@ -38,6 +34,14 @@ const updateById = (salaId, { precio, disponible, aforo, nombre, direccion }) =>
 }
 
 
+const insert = ({ precio, disponible, aforo, nombre, direccion }) => {
+
+  return db.query(
+    'insert into salas (precio, disponible, aforo, nombre, direccion) values (?, ?, ?, ?, ?)', [precio, disponible, aforo, nombre, direccion]
+  )
+
+};
+
 module.exports = {
   salasReservadas,
   salasLibres,
@@ -45,5 +49,7 @@ module.exports = {
   salaByid,
   deleteById,
   updateById,
-  getById
+  getById,
+  insert
 };
+

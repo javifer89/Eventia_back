@@ -28,8 +28,12 @@ const getByUser = async (req, res) => {
 const remove = async (req, res) => {
   try {
     const { staffId } = req.params;
+    const [usuarios] = await Staff.getById(staffId);
     const [result] = await Staff.deleteById(staffId);
-    res.json(result);
+
+    res.json(usuarios[0])
+    res.send(result)
+
   } catch (error) {
     res.json({ fatal: error.message });
   }
@@ -50,10 +54,26 @@ const update = async (req, res) => {
   }
 }
 
+const create = async (req, res) => {
+  //console.log(req.body)
+  try {
+    const [result] = await Staff.insert(req.body);
+    //const [staffs] = await staff.
+    const [usuarios] = await Usuario.getById(usuarioId);
+
+    res.json(usuarios[0])
+
+
+  } catch (error) {
+    res.json({ errorcito: error.message });
+  }
+}
+
 module.exports = {
   getById,
   getByUser,
   remove,
-  update
+  update,
+  create
 };
 
