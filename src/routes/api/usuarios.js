@@ -3,7 +3,7 @@ const router = require('express').Router();
 const usuariosController = require('../../controllers/usuarios.controller');
 
 //GET
-router.get('/usuario/:usuarioId', usuariosController.getById);
+router.get('/:usuarioId', usuariosController.getById);
 router.get('/:dniusuario', usuariosController.getByDni);
 
 //POST
@@ -17,4 +17,4 @@ router.delete("/:usuarioId", usuariosController.remove);
 
 
 
-module.exports = router
+module.exports = router;

@@ -25,11 +25,11 @@ POST {{host}}:{{port}}{{apiSalas}}
 Content-Type: application/json
 
 {
-  "precio": "100", 
-  "disponible": true, 
-  "aforo": 120, 
-  "nombre":"los cisnes", 
-  "direccion":"estanque 57"    
+  "precio": "100",
+  "disponible": true,
+  "aforo": 120,
+  "nombre":"los cisnes",
+  "direccion":"estanque 57"
 }
 ###
 
@@ -64,12 +64,12 @@ POST {{host}}:{{port}}{{apiUsuarios}}
 Content-Type: application/json
 
 {
-  "nombre": "pilar", 
-  "direccion":"Rio de Janeiro, 26", 
-  "email": "pi@aaauuuur.com", 
-  "telefono":"644444444", 
-  "dni":"78880uugg0m", 
-  "username":"piliuuuuusiiiiiii", 
+  "nombre": "pilar",
+  "direccion":"Rio de Janeiro, 26",
+  "email": "pi@aaauuuur.com",
+  "telefono":"644444444",
+  "dni":"78880uugg0m",
+  "username":"piliuuuuusiiiiiii",
   "password":"123456"
 }
 
@@ -101,17 +101,28 @@ GET {{host}}:{{port}}{{apiStaff}}/2
 GET {{host}}:{{port}}{{apiStaff}}/staff/pedritogar
 
 ###
-POST {{host}}:{{port}}{{apiStaff}}
+POST {{host}}:{{port}}{{apiStaff}}/registro
 Content-Type: application/json
 
 {
-  "nombre": "Julio", 
-  "rol":"trabajador", 
-  "usuario": "julito", 
-  "password":"654987", 
-  "email":"julio@agosto.com"    
+  "nombre": "Julio",
+  "rol":"trabajador",
+  "usuario": "julito",
+  "password":"654987",
+  "email":"julio@agosto.com"
 }
 
+###
+POST {{host}}:{{port}}{{apiStaff}}/login
+Content-Type: application/json
+
+//TODO AJUSTAR LOGIN -> USUARIO O EMAIL
+{
+
+  "usuario": "julito",
+  "password":"654987",
+  "email":"julio@agosto.com"
+}
 ###
 
 PUT {{host}}:{{port}}{{apiStaff}}/6
@@ -128,6 +139,3 @@ Content-Type: application/json
 
 ###
 DELETE {{host}}:{{port}}{{apiStaff}}/6
-
-
-
