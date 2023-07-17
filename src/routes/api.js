@@ -5,5 +5,4 @@ router.use('/salas', require('./api/salas'));
 router.use('/staff', require('./api/staff'));
 
 
-
 module.exports = router
