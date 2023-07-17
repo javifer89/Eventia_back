@@ -1,5 +1,5 @@
 // requerir la libreria
-const mysql = require('mysql2');
+const mysql = require("mysql2");
 
 // TODO: mover los datos a .env
 const pool = mysql.createPool({

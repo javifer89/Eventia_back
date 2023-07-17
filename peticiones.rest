@@ -1,42 +1,41 @@
 @host = http://localhost
 @port = 3000
-@apisalas = /api/salas
-@apiusuarios = /api/usuarios
+@apiSalas = /api/salas
+@apiUsuarios = /api/usuarios
 @apiStaff = /api/staff
 
 #########################
 ##      API salas      ##
 #########################
 
-
-
-GET {{host}}:{{port}}/prueba
+GET {{host}}:{{port}}{{apiSalas}}/reservadas
 
 ###
 
-GET {{host}}:{{port}}{{apisalas}}/reservadas
+GET {{host}}:{{port}}{{apiSalas}}/libres
 
 ###
 
-GET {{host}}:{{port}}{{apisalas}}/libres
+GET {{host}}:{{port}}{{apiSalas}}/usuario/3
 
 ###
-
-GET {{host}}:{{port}}{{apisalas}}/usuario/3
+GET {{host}}:{{port}}{{apiSalas}}/usersala
 
 ###
-GET {{host}}:{{port}}{{apisalas}}/usersala
-
+DELETE {{host}}:{{port}}{{apiSalas}}/5
 
 #########################
 ##    API usuarios     ##
 #########################
 
-GET {{host}}:{{port}}{{apiusuarios}}/usuario/3
+GET {{host}}:{{port}}{{apiUsuarios}}/usuario/3
 
 ###
 
-GET {{host}}:{{port}}{{apiusuarios}}/987654321-B
+GET {{host}}:{{port}}{{apiUsuarios}}/987654321-B
+
+###
+DELETE {{host}}:{{port}}{{apiUsuarios}}/2
 
 #########################
 ##      API staff      ##
@@ -47,4 +46,8 @@ GET {{host}}:{{port}}{{apiStaff}}/2
 ###
 
 GET {{host}}:{{port}}{{apiStaff}}/staff/pedritogar
+
+###
+DELETE {{host}}:{{port}}{{apiStaff}}/2
+
 
