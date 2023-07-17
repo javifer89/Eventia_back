@@ -1,0 +1,59 @@
+@host = http://localhost
+@port = 3000
+@apiUsuarios = /api/usuarios
+@apiSalas = /api/salas
+
+@apiStaff = /api/staff
+
+
+#########################
+##    API USUARIOS     ##
+#########################
+
+
+POST {{host}}:{{port}}{{apiUsuarios}}
+Content-Type: application/json
+
+{
+       "nombre": "pilar", 
+       "direccion":"Rio de Janeiro, 26", 
+       "email": "pi@lar.com", 
+       "telefono":"644444444", 
+       "dni":"777788899m", 
+       "username":"pili", 
+       "password":"123456"
+}
+
+###
+
+#########################
+##      API SALAS      ##
+#########################
+
+POST {{host}}:{{port}}{{apiSalas}}
+Content-Type: application/json
+
+{
+       "precio": "100", 
+       "disponible": true, 
+       "aforo": 120, 
+       "nombre":"los cisnes", 
+       "direccion":"estanque 57"    
+}
+
+###
+
+#########################
+##      API STAFF      ##
+#########################
+
+POST {{host}}:{{port}}{{apiStaff}}
+Content-Type: application/json
+
+{
+       "nombre": "Julio", 
+       "rol":"trabajador", 
+       "usuario": "julito", 
+       "password":"654987", 
+       "email":"julio@agosto.com"    
+}
