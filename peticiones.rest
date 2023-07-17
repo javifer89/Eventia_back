@@ -9,9 +9,7 @@
 #########################
 
 GET {{host}}:{{port}}{{apiSalas}}/reservadas
-
 ###
-
 GET {{host}}:{{port}}{{apiSalas}}/libres
 
 ###
@@ -49,5 +47,3 @@ GET {{host}}:{{port}}{{apiStaff}}/staff/pedritogar
 
 ###
 DELETE {{host}}:{{port}}{{apiStaff}}/2
-
-
