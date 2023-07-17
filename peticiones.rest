@@ -1,0 +1,40 @@
+
+
+PUT http://localhost:3000/api/usuarios/6
+Content-Type: application/json
+
+{
+  "username": "lolo",
+  "email": "pepe2@gmail.com",
+  "telefono": "626626626",
+  "dni": "53601579h",
+  "password": "pepe",
+  "nombre": "Er Pepe",
+  "direccion": "Calle esta app me saca de mis casillas"
+}
+
+###
+PUT http://localhost:3000/api/staff/6
+Content-Type: application/json
+
+{
+  "nombre": "anita",
+  "rol": "trabajador",
+  "usuario": "anaita",
+  "nombre": "La Ana",
+  "password": "La Ana",
+  "email": "anacaceres@ana.com"
+}
+
+###
+PUT http://localhost:3000/api/salas/1
+Content-Type: application/json
+
+{
+  "precio": "150",
+  "disponible": true,
+  "aforo": 60,
+  "nombre": "Una Sala",
+  "direccion": "Casa Mario, 123"
+}
+
