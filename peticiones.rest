@@ -110,6 +110,9 @@ DELETE {{host}}:{{port}}{{apiUsuarios}}/12
 GET {{host}}:{{port}}{{apiStaff}}/2
 
 ###
+GET {{host}}:{{port}}{{apiStaff}}/
+
+###
 GET {{host}}:{{port}}{{apiStaff}}/pedritogar
 
 ###

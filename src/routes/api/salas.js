@@ -10,6 +10,7 @@ router.get("/usuario/:usersala", checkToken, salasController.getByUsuario);
 router.get("/:salaId", checkToken, salasController.getById);
 
 
+
 //POST
 router.post("/", salasController.create);
 router.post("/comprobar_salas", salasController.comprobarSala);
