@@ -26,13 +26,16 @@ DROP TABLE IF EXISTS `usuarios_has_salas`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios_has_salas` (
   `usuarios_id` int NOT NULL,
-  `Salas_id` int NOT NULL,
+  `salas_id` int NOT NULL,
   `id_reserva` int NOT NULL AUTO_INCREMENT,
   `fecha_reserva` date NOT NULL,
+  `fecha_fin_reserva` date NOT NULL,
+  `hora_reserva` time NOT NULL,
+  `hora_fin_reserva` time NOT NULL,
   PRIMARY KEY (`id_reserva`),
-  KEY `fk_usuarios_has_Salas_Salas1_idx` (`Salas_id`),
+  KEY `fk_usuarios_has_Salas_Salas1_idx` (`salas_id`),
   KEY `fk_usuarios_has_Salas_usuarios_idx` (`usuarios_id`),
-  CONSTRAINT `fk_usuarios_has_Salas_Salas1` FOREIGN KEY (`Salas_id`) REFERENCES `salas` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `fk_usuarios_has_Salas_Salas1` FOREIGN KEY (`salas_id`) REFERENCES `salas` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_usuarios_has_Salas_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -55,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-14 14:25:47
+-- Dump completed on 2023-07-18 12:36:29

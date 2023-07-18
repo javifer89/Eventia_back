@@ -26,13 +26,13 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `telefono` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nombre` varchar(95) COLLATE utf8mb4_unicode_ci NOT NULL,
   `dni` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nombre` varchar(85) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telefono` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
   `direccion` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `dni_UNIQUE` (`dni`),
@@ -47,7 +47,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'juancho','juancho@gmail.com','123456789','123456789-A','password1','Juan Rodriguez','Calle Principal 1'),(2,'marachu','marachu@gmail.com','987654321','987654321-B','password1','Mara Garcia','Avenida Central 20'),(3,'charle','charle@gmail.com','555555555','456789123-C','password1','Charlie Sanchez','Calle Secundaria 5'),(4,'lauri','lauri@gmail.com','111222333','654321987-D','password1','Lauri Ronda','Plaza Mayor 10'),(5,'pedri','pedri@gmail.com','999888777','321654987-E','password1','Pedri Sanchez','Calle del Sol 15'),(6,'anusqui','anusqui@gmail.com','777777777','987123654-F','password1','Ana León','Avenida del Parque 8');
+INSERT INTO `usuarios` VALUES (1,'Juan Rodriguez','123456789-A','123456789','Calle Principal 1','juancho@gmail.com','juancho','password1'),(4,'Lauri Ronda','654321987-D','111222333','Plaza Mayor 10','lauri@gmail.com','lauri','password1'),(5,'Pedri Sanchez','321654987-E','999888777','Calle del Sol 15','pedri@gmail.com','pedri','password1'),(6,'Ana León','987123654-F','777777777','Avenida del Parque 8','anusqui@gmail.com','anusqui','password1');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-14 14:25:47
+-- Dump completed on 2023-07-18 12:36:29

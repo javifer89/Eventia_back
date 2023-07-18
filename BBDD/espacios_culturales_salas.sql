@@ -27,10 +27,11 @@ DROP TABLE IF EXISTS `salas`;
 CREATE TABLE `salas` (
   `id` int NOT NULL AUTO_INCREMENT,
   `precio` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `disponible` tinyint NOT NULL DEFAULT '1',
   `aforo` int unsigned NOT NULL,
   `nombre` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
   `direccion` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url_foto` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -42,7 +43,7 @@ CREATE TABLE `salas` (
 
 LOCK TABLES `salas` WRITE;
 /*!40000 ALTER TABLE `salas` DISABLE KEYS */;
-INSERT INTO `salas` VALUES (1,'$50',1,150,'Sala de Fiesta A','Calle Principal 1'),(2,'$70',1,180,'Salón Elegante B','Avenida Central 20'),(3,'$40',1,100,'Salón Acogedor C','Calle Secundaria 5'),(4,'$60',1,120,'Sala Moderna D','Plaza Mayor 10'),(5,'$80',1,200,'Salón VIP E','Calle del Sol 15'),(6,'$45',1,80,'Sala Íntima F','Avenida del Parque 8'),(7,'$55',1,160,'Salón Espacioso G','Calle del Río 3'),(8,'$75',1,100,'Sala de Conferencias H','Avenida de la Luna 7'),(9,'$85',1,180,'Salón de Eventos I','Plaza del Ayuntamiento 2'),(10,'$40',1,50,'Sala de Reuniones L','Calle del Jardín 6');
+INSERT INTO `salas` VALUES (1,'$50',150,'Sala de Fiesta A','Calle Principal 1','',''),(3,'$40',100,'Salón Acogedor C','Calle Secundaria 5','',''),(4,'$60',120,'Sala Moderna D','Plaza Mayor 10','',''),(6,'$45',80,'Sala Íntima F','Avenida del Parque 8','',''),(7,'$55',160,'Salón Espacioso G','Calle del Río 3','',''),(8,'$75',100,'Sala de Conferencias H','Avenida de la Luna 7','',''),(9,'$85',180,'Salón de Eventos I','Plaza del Ayuntamiento 2','',''),(10,'$40',50,'Sala de Reuniones L','Calle del Jardín 6','','');
 /*!40000 ALTER TABLE `salas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-14 14:25:47
+-- Dump completed on 2023-07-18 12:36:29

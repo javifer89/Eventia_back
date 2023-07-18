@@ -1,1 +1,0 @@
-SELECT * FROM espacios_culturales.salas;
