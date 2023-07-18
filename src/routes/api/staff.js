@@ -9,7 +9,7 @@ router.get("/:staffId", checkLogin, staffController.getById);
 
 //POST
 router.post("/registro", staffController.create);
-// router.post("/login");
+router.post("/login", staffController.login);
 
 // PUT
 router.put("/:staffId", checkLogin, staffController.update);

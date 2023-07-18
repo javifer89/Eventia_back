@@ -65,6 +65,18 @@ const create = async (req, res) => {
     res.json({ fatal: error.message });
   }
 };
+const login = async (req, res) => {
+  req.body.password = bcrypt.hashSync(req.body.password, 6); // encriptamos la password
+  try {
+    const [result] = await Staff.insert(req.body);
+     const [usuarios] = await Staff.getStaffById(result.insertId);
+
+    res.json(usuarios[0]);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+};
+
 
 
 module.exports = {
