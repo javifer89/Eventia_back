@@ -44,7 +44,7 @@ const insert = ({ precio, disponible, aforo, nombre, direccion }) => {
 const checkSalas = (salas_id, hora_reserva, fecha_reserva) => {
   return db.query(
     "select * from usuarios_has_salas where salas_id = ? and hora_reserva= ? and fecha_reserva= ?",
-    [sala_id, hora_reserva, fecha_reserva]
+    [salas_id, hora_reserva, fecha_reserva]
   );
 };
 
