@@ -80,11 +80,34 @@ const create = async (req, res) => {
     }
 }
 
+const login = async (req, res) => {
+    try {
+        const [usuarios] = await Usuario.getByEmail(req.body.email);
+        if (usuarios.length === 0) {
+            return res.json({ fatal: 'No hay usuario con ese email' });
+        }
+        const user = usuarios[0];
+        //Comprobar si las password coinciden
+        const passwordIguales = bcrypt.compareSync(req.body.password, user.password);
+        if (!passwordIguales) {
+            return res.json({ fatal: "error en el email y/o contraseña" });
+        }
+        res.json({
+            succes: "Login correcto",
+            token: createToken(user),
+        });
+
+    } catch (error) {
+        res.json({ fatal: "Error" });
+    }
+}
+
 module.exports = {
     remove,
+    getAll,
     getById,
     getByDni,
     update,
     create,
-    getAll
+    login
 };

@@ -10,7 +10,9 @@ router.get('/:usuarioId',checkUsuarioId, usuariosController.getById);
 router.get('/:dniusuario', usuariosController.getByDni);
 
 //POST
-router.post('/', usuariosController.create);
+router.post('/registro', usuariosController.create);
+router.post("/login", usuariosController.login);
+
 
 // PUT
 router.put("/:usuarioId", checkUsuarioId, usuariosController.update);

@@ -81,6 +81,17 @@ const create = async (req, res) => {
   }
 }
 
+const comprobarSala = async (req, res) => {
+  try {
+    const salaDisponible = await Sala.checkSalas(salas_Id, fecha_reserva, hora_reserva)
+    console.log(salaDisponible)
+    // const respuestaSala = salaDisponible === null
+
+    res.json({ isAvailable: respuestaSala });
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+};
 
 module.exports = {
   getReservadas,
@@ -89,5 +100,6 @@ module.exports = {
   getById,
   remove,
   update,
-  create
+  create,
+  comprobarSala
 };

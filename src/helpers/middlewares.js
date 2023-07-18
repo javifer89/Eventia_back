@@ -47,7 +47,7 @@ const checkRol = (user) => {
   return false;
 };
 
-const checkLogin = async (req, res) => {
+const checkLogin = async (req, res, next) => {
   //existe el email en la base de datos?
 
   const [staff] = await Staff.getByEmail(req.body.email);
@@ -71,6 +71,8 @@ const checkLogin = async (req, res) => {
     succes: "Login correcto",
     token: createToken(user),
   });
+
+  next();
 };
 
 module.exports = {
