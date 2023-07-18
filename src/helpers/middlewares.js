@@ -1,9 +1,9 @@
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const { createToken } = require("../helpers/utils");
 
 const Usuario = require("../models/usuarios.model");
 const Staff = require("../models/staff.model");
-
 
 const checkUsuarioId = async (req, res, next) => {
   const { UsuarioId } = req.params;
@@ -40,6 +40,13 @@ const checkToken = async (req, res, next) => {
   next();
 };
 
+const checkRol = (user) => {
+  if (user.rol === "Administrador" || user.rol === "Trabajador") {
+    return true;
+  }
+  return false;
+};
+
 const checkLogin = async (req, res) => {
   //existe el email en la base de datos?
   const [staff] = await Staff.getByEmail(req.body.email);
@@ -47,24 +54,27 @@ const checkLogin = async (req, res) => {
     return res.json({ fatal: error.message });
   }
 
-  //TODO REVISAR EL user.rol
   const user = staff[0];
-
   //Comprobar si las password coinciden
   const iguales = bcrypt.compareSync(req.body.password, user.password);
   if (!iguales) {
     return res.json({ fatal: "error en el email y/o contraseña" });
   }
+  // TODO revisar si es aqui o en Front -> LA COMPROBACIÓN DE ROL -> administrador hace unas cosas y trabajadores otras
+  // Verificar el rol
+  // if (!checkRol(user)) {
+  //   return res.json({ fatal: "El rol no es válido" });
+  // }
+
   res.json({
     succes: "Login correcto",
     token: createToken(user),
   });
 };
 
-
-
 module.exports = {
   checkUsuarioId,
   checkToken,
-  checkLogin
+  checkLogin,
+  checkRol,
 };

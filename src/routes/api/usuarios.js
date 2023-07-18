@@ -5,6 +5,7 @@ const { checkUsuarioId } = require("../../helpers/middlewares");
 
 
 //GET
+router.get("/", usuariosController.getAll);
 router.get('/:usuarioId',checkUsuarioId, usuariosController.getById);
 router.get('/:dniusuario', usuariosController.getByDni);
 

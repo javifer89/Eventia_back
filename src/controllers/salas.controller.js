@@ -77,7 +77,7 @@ const create = async (req, res) => {
     res.json(usuarios[0])
 
   } catch (error) {
-    res.json({ errorcito: error.message });
+    res.json({ fatal: error.message });
   }
 }
 

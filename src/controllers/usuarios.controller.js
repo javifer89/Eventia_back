@@ -1,5 +1,14 @@
 const Usuario = require("../models/usuarios.model");
 
+const getAll = async (req, res) => {
+  try {
+    const [usuarios] = await Usuario.getUsuarios();
+    res.json(usuarios);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+};
+
 const getById = async (req, res) => {
     try {
         const [usuarios] = await Usuario.usuarioByid(req.params.usuarioId);
@@ -57,7 +66,6 @@ const update = async (req, res) => {
 }
 
 
-//TODO Meter bcrypt para comprobar contraseñas en el usuario??
 const create = async (req, res) => {
     console.log(req.body)
     try {
@@ -68,7 +76,7 @@ const create = async (req, res) => {
         res.json(usuarioCreado[0])
 
     } catch (error) {
-        res.json({ errorcito: error.message });
+        res.json({ fatal: error.message });
     }
 }
 
@@ -77,5 +85,6 @@ module.exports = {
     getById,
     getByDni,
     update,
-    create
+    create,
+    getAll
 };

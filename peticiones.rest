@@ -7,20 +7,17 @@
 #########################
 ##      API salas      ##
 #########################
-
 GET {{host}}:{{port}}{{apiSalas}}/reservadas
 ###
 GET {{host}}:{{port}}{{apiSalas}}/libres
 
 ###
-
 GET {{host}}:{{port}}{{apiSalas}}/usuario/3
 
 ###
 GET {{host}}:{{port}}{{apiSalas}}/usersala
 
 ###
-
 POST {{host}}:{{port}}{{apiSalas}}
 Content-Type: application/json
 
@@ -31,8 +28,8 @@ Content-Type: application/json
   "nombre":"los cisnes",
   "direccion":"estanque 57"
 }
-###
 
+###
 PUT {{host}}:{{port}}{{apiSalas}}/1
 Content-Type: application/json
 
@@ -51,15 +48,12 @@ DELETE {{host}}:{{port}}{{apiSalas}}/14
 #########################
 ##    API usuarios     ##
 #########################
-
 GET {{host}}:{{port}}{{apiUsuarios}}/usuario/3
 
 ###
-
 GET {{host}}:{{port}}{{apiUsuarios}}/987654321-B
 
 ###
-
 POST {{host}}:{{port}}{{apiUsuarios}}
 Content-Type: application/json
 
@@ -74,7 +68,6 @@ Content-Type: application/json
 }
 
 ###
-
 PUT {{host}}:{{port}}{{apiUsuarios}}/6
 Content-Type: application/json
 
@@ -93,38 +86,33 @@ DELETE {{host}}:{{port}}{{apiUsuarios}}/21
 #########################
 ##      API staff      ##
 #########################
-
 GET {{host}}:{{port}}{{apiStaff}}/2
 
 ###
-
-GET {{host}}:{{port}}{{apiStaff}}/staff/pedritogar
+GET {{host}}:{{port}}{{apiStaff}}/pedritogar
 
 ###
 POST {{host}}:{{port}}{{apiStaff}}/registro
 Content-Type: application/json
 
 {
-  "nombre": "Julio",
+  "nombre": "Julito2",
   "rol":"trabajador",
-  "usuario": "julito",
+  "usuario": "julito2",
   "password":"654987",
-  "email":"julio@agosto.com"
+  "email":"julio2233@agosto.com"
 }
 
 ###
 POST {{host}}:{{port}}{{apiStaff}}/login
 Content-Type: application/json
 
-//TODO AJUSTAR LOGIN -> USUARIO O EMAIL
 {
-
-  "usuario": "julito",
-  "password":"654987",
-  "email":"julio@agosto.com"
+  "email":"julio@agosto.com",
+  "password":"654987"
 }
-###
 
+###
 PUT {{host}}:{{port}}{{apiStaff}}/6
 Content-Type: application/json
 
