@@ -2,6 +2,9 @@ const getUsuarios = () => {
   return db.query("select * from usuarios");
 };
 
+const getByEmail = (email) => {
+  return db.query("select * from usuarios where email = ?", [email]);
+};
 const usuarioByid = (id) => {
   return db.query("select * from usuarios where id = ?", [id]);
 };
@@ -45,6 +48,7 @@ const insert = ({
 
 module.exports = {
   getUsuarios,
+  getByEmail,
   usuarioByid,
   usuarioByDNI,
   deleteById,
