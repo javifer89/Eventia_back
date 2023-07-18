@@ -6,8 +6,8 @@ const Usuario = require("../models/usuarios.model");
 const Staff = require("../models/staff.model");
 
 const checkUsuarioId = async (req, res, next) => {
-  const { UsuarioId } = req.params;
-  const [usuarios] = await Usuario.getById(usuarioId);
+  const { usuarioId } = req.params;
+  const [usuarios] = await Usuario.usuarioByid(usuarioId);
 
   if (usuarios.length === 0) {
     return res.send({ fatal: "El usuario no existe" });

@@ -48,8 +48,10 @@ DELETE {{host}}:{{port}}{{apiSalas}}/14
 #########################
 ##    API usuarios     ##
 #########################
-GET {{host}}:{{port}}{{apiUsuarios}}/usuario/3
+GET {{host}}:{{port}}{{apiUsuarios}}
 
+###
+GET {{host}}:{{port}}{{apiUsuarios}}/1
 ###
 GET {{host}}:{{port}}{{apiUsuarios}}/987654321-B
 
@@ -60,28 +62,28 @@ Content-Type: application/json
 {
   "nombre": "pilar",
   "direccion":"Rio de Janeiro, 26",
-  "email": "pi@aaauuuur.com",
+  "email": "pili@aaauuuur.com",
   "telefono":"644444444",
-  "dni":"78880uugg0m",
-  "username":"piliuuuuusiiiiiii",
+  "dni":"78880rugg0m",
+  "username":"piliuuusiiiiiii",
   "password":"123456"
 }
 
 ###
-PUT {{host}}:{{port}}{{apiUsuarios}}/6
+PUT {{host}}:{{port}}{{apiUsuarios}}/7
 Content-Type: application/json
 
 {
-  "username": "lolillo",
-  "email": "pepe2@gmail.com",
+  "username": "lolillo2",
+  "email": "pepe22@gmail.com",
   "telefono": "626626626",
-  "dni": "53601579h",
+  "dni": "53601579w",
   "password": "pepe",
   "nombre": "Er Pepe",
   "direccion": "Calle esta app me saca de mis casillas"
 }
 ###
-DELETE {{host}}:{{port}}{{apiUsuarios}}/21
+DELETE {{host}}:{{port}}{{apiUsuarios}}/12
 
 #########################
 ##      API staff      ##
