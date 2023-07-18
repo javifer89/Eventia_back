@@ -16,12 +16,14 @@ const checkUsuarioId = async (req, res, next) => {
 };
 
 const checkToken = async (req, res, next) => {
+  console.log(req);
   //1. comprobamos si el token viene incluido en la petición (headers -Authorization)
   // console.log('Pasa por el checkToken');
   if (!req.headers["authorization"]) {
     return res.json({ fatal: "Necesitas la cabecera de autorización" });
   }
   const token = req.headers["authorization"];
+  console.log(token);
   //2. Comprobamos si el token es correcto
   //3. Comprobamos si el token está caducado (opcional)
   let obj;

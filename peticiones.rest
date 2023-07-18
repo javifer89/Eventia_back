@@ -44,11 +44,12 @@ Content-Type: application/json
 ###
 POST {{host}}:{{port}}{{apiSalas}}/comprobar_salas
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsInVzZXJSb2xlIjoidHJhYmFqYWRvciIsImV4cCI6MTY4OTcyNDMxMCwiaWF0IjoxNjg5Njk1NTEwfQ.m9o_e65Gryrju0Ry6Hx4UcsOOtZKZahA5l5Zf4ntdkI
 
 {
   "salas_id": "1",
   "fecha_reserva": "2023-07-13",
-  "hora_reserva": "08:00:00",
+  "hora_reserva": "08:00:00"
 }
 
 ###
