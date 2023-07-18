@@ -102,7 +102,7 @@ Content-Type: application/json
   "rol":"trabajador",
   "usuario": "julito2",
   "password":"654987",
-  "email":"julio2233@agosto.com"
+  "email":"julio22123@agosto.com"
 }
 
 ###

@@ -49,9 +49,10 @@ const checkRol = (user) => {
 
 const checkLogin = async (req, res) => {
   //existe el email en la base de datos?
+
   const [staff] = await Staff.getByEmail(req.body.email);
   if (staff.length === 0) {
-    return res.json({ fatal: error.message });
+    return res.json({ fatal: 'No hay usuario con ese email' });
   }
 
   const user = staff[0];
