@@ -7,32 +7,29 @@
 #########################
 ##      API salas      ##
 #########################
-
 GET {{host}}:{{port}}{{apiSalas}}/reservadas
 ###
 GET {{host}}:{{port}}{{apiSalas}}/libres
 
 ###
-
 GET {{host}}:{{port}}{{apiSalas}}/usuario/3
 
 ###
 GET {{host}}:{{port}}{{apiSalas}}/usersala
 
 ###
-
 POST {{host}}:{{port}}{{apiSalas}}
 Content-Type: application/json
 
 {
-  "precio": "100", 
-  "disponible": true, 
-  "aforo": 120, 
-  "nombre":"los cisnes", 
-  "direccion":"estanque 57"    
+  "precio": "100",
+  "disponible": true,
+  "aforo": 120,
+  "nombre":"los cisnes",
+  "direccion":"estanque 57"
 }
-###
 
+###
 PUT {{host}}:{{port}}{{apiSalas}}/1
 Content-Type: application/json
 
@@ -51,30 +48,26 @@ DELETE {{host}}:{{port}}{{apiSalas}}/14
 #########################
 ##    API usuarios     ##
 #########################
-
 GET {{host}}:{{port}}{{apiUsuarios}}/usuario/3
 
 ###
-
 GET {{host}}:{{port}}{{apiUsuarios}}/987654321-B
 
 ###
-
 POST {{host}}:{{port}}{{apiUsuarios}}
 Content-Type: application/json
 
 {
-  "nombre": "pilar", 
-  "direccion":"Rio de Janeiro, 26", 
-  "email": "pi@aaauuuur.com", 
-  "telefono":"644444444", 
-  "dni":"78880uugg0m", 
-  "username":"piliuuuuusiiiiiii", 
+  "nombre": "pilar",
+  "direccion":"Rio de Janeiro, 26",
+  "email": "pi@aaauuuur.com",
+  "telefono":"644444444",
+  "dni":"78880uugg0m",
+  "username":"piliuuuuusiiiiiii",
   "password":"123456"
 }
 
 ###
-
 PUT {{host}}:{{port}}{{apiUsuarios}}/6
 Content-Type: application/json
 
@@ -93,27 +86,33 @@ DELETE {{host}}:{{port}}{{apiUsuarios}}/21
 #########################
 ##      API staff      ##
 #########################
-
 GET {{host}}:{{port}}{{apiStaff}}/2
 
 ###
-
-GET {{host}}:{{port}}{{apiStaff}}/staff/pedritogar
+GET {{host}}:{{port}}{{apiStaff}}/pedritogar
 
 ###
-POST {{host}}:{{port}}{{apiStaff}}
+POST {{host}}:{{port}}{{apiStaff}}/registro
 Content-Type: application/json
 
 {
-  "nombre": "Julio", 
-  "rol":"trabajador", 
-  "usuario": "julito", 
-  "password":"654987", 
-  "email":"julio@agosto.com"    
+  "nombre": "Julito2",
+  "rol":"trabajador",
+  "usuario": "julito2",
+  "password":"654987",
+  "email":"julio2233@agosto.com"
 }
 
 ###
+POST {{host}}:{{port}}{{apiStaff}}/login
+Content-Type: application/json
 
+{
+  "email":"julio@agosto.com",
+  "password":"654987"
+}
+
+###
 PUT {{host}}:{{port}}{{apiStaff}}/6
 Content-Type: application/json
 
@@ -128,6 +127,3 @@ Content-Type: application/json
 
 ###
 DELETE {{host}}:{{port}}{{apiStaff}}/6
-
-
-

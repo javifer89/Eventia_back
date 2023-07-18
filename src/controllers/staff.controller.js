@@ -1,4 +1,8 @@
+const bcrypt = require("bcryptjs");
 const Staff = require("../models/staff.model");
+
+const { createToken } = require("../helpers/utils");
+const { checkLogin } = require("../helpers/middlewares");
 
 const getById = async (req, res) => {
   try {
@@ -31,9 +35,8 @@ const remove = async (req, res) => {
     const [usuarios] = await Staff.getById(staffId);
     const [result] = await Staff.deleteById(staffId);
 
-    res.json(usuarios[0])
-    res.send(result)
-
+    res.json(usuarios[0]);
+    res.send(result);
   } catch (error) {
     res.json({ fatal: error.message });
   }
@@ -41,39 +44,34 @@ const remove = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    const { staffId } = req.params
-    const [result] = await Staff.updateById(staffId, req.body)
-
-    //Puedo devolver el usuario modificado cuando tenga el geyById de gustavo. 
+    const { staffId } = req.params;
+    const [result] = await Staff.updateById(staffId, req.body);
     const [usuarios] = await Staff.getById(usuarioId);
 
-    res.json(result[0])
-
+    res.json(result[0]);
   } catch (error) {
-    res.json({ fatal: error.message })
+    res.json({ fatal: error.message });
   }
-}
+};
 
 const create = async (req, res) => {
-  //console.log(req.body)
+  req.body.password = bcrypt.hashSync(req.body.password, 6); // encriptamos la password
   try {
     const [result] = await Staff.insert(req.body);
-    //const [staffs] = await staff.
-    const [usuarios] = await Usuario.getById(usuarioId);
+     const [usuarios] = await Staff.getStaffById(result.insertId);
 
-    res.json(usuarios[0])
-
-
+    res.json(usuarios[0]);
   } catch (error) {
-    res.json({ errorcito: error.message });
+    res.json({ fatal: error.message });
   }
-}
+};
+
 
 module.exports = {
   getById,
   getByUser,
   remove,
   update,
-  create
-};
+  create,
 
+};

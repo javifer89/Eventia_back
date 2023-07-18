@@ -16,7 +16,6 @@ const deleteById = (staffId) => {
   return db.query("delete from staff where id = ?", [staffId]);
 };
 
-
 const getById = (staffId) => {
   return db.query('select * from staff where id = ?', [staffId]) //donde va el valor que es variable ponemos un ?
 }
@@ -27,12 +26,14 @@ const updateById = (staffId, { nombre, rol, usuario, password, email }) => {
 
 }
 
-
-
 const insert = ({ nombre, rol, usuario, password, email }) => {
   return db.query(
     'insert into staff (nombre, rol, usuario, password, email) values (?, ?, ?, ?, ?)', [nombre, rol, usuario, password, email]
   )
+};
+
+const getByEmail = (email) => {
+  return db.query("select * from staff where email = ?", [email]);
 };
 
 module.exports = {
@@ -41,5 +42,6 @@ module.exports = {
   deleteById,
   updateById,
   getById,
-  insert
+  insert,
+  getByEmail
 };

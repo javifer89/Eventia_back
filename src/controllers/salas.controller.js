@@ -60,7 +60,6 @@ const update = async (req, res) => {
     const { salaId } = req.params
     const [result] = await Sala.updateById(salaId, req.body)
 
-    //Puedo devolver el usuario modificado cuando tenga el geyById de gustavo.
     const [salas] = await Sala.getById(salaId);
 
     res.json(salas[0])
@@ -78,7 +77,7 @@ const create = async (req, res) => {
     res.json(usuarios[0])
 
   } catch (error) {
-    res.json({ errorcito: error.message });
+    res.json({ fatal: error.message });
   }
 }
 
@@ -92,4 +91,3 @@ module.exports = {
   update,
   create
 };
-
