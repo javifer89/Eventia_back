@@ -42,6 +42,16 @@ Content-Type: application/json
 }
 
 ###
+POST {{host}}:{{port}}{{apiSalas}}/comprobar_salas
+Content-Type: application/json
+
+{
+  "salas_id": "1",
+  "fecha_reserva": "2023-07-13",
+  "hora_reserva": "08:00:00",
+}
+
+###
 DELETE {{host}}:{{port}}{{apiSalas}}/14
 
 
@@ -56,7 +66,7 @@ GET {{host}}:{{port}}{{apiUsuarios}}/1
 GET {{host}}:{{port}}{{apiUsuarios}}/987654321-B
 
 ###
-POST {{host}}:{{port}}{{apiUsuarios}}
+POST {{host}}:{{port}}{{apiUsuarios}}/registro
 Content-Type: application/json
 
 {
@@ -66,6 +76,15 @@ Content-Type: application/json
   "telefono":"644444444",
   "dni":"78880rugg0m",
   "username":"piliuuusiiiiiii",
+  "password":"123456"
+}
+
+###
+POST {{host}}:{{port}}{{apiUsuarios}}/login
+Content-Type: application/json
+
+{
+  "email": "pili@aaauuuur.com",
   "password":"123456"
 }
 
