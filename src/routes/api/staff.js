@@ -4,6 +4,7 @@ const staffController = require('../../controllers/staff.controller');
 const { checkLogin } = require('../../helpers/middlewares');
 
 //GET
+router.get("/:usuario", checkLogin, staffController.getAllStaff);
 router.get('/:usuario', checkLogin, staffController.getByUser);
 router.get("/:staffId", checkLogin, staffController.getById);
 
