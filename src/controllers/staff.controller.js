@@ -89,6 +89,7 @@ const login = async (req, res) => {
     res.json({
       succes: "Login correcto",
       token: createToken(user),
+      rol: user.rol
     });
   } catch (error) {
     res.json({ fatal: error.message });
