@@ -15,7 +15,7 @@ router.post("/login", usuariosController.login);
 
 
 // PUT
-router.put("/:usuarioId", /*checkUsuarioId,*/ usuariosController.update);
+router.put("/editar/:usuarioId", /*checkUsuarioId,*/ usuariosController.update);
 
 //DELETE
 router.delete("/:usuarioId", /*checkUsuarioId,*/ usuariosController.remove);
