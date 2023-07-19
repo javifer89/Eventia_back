@@ -83,11 +83,13 @@ const create = async (req, res) => {
 
 const comprobarSala = async (req, res) => {
   try {
-    const salaDisponible = await Sala.checkSalas(salas_Id, fecha_reserva, hora_reserva)
-    console.log(salaDisponible)
-    // const respuestaSala = salaDisponible === null
-
-    res.json({ isAvailable: respuestaSala });
+    const { salas_id, fecha_reserva, hora_reserva } = req.body;
+    const salaDisponible = await Sala.checkSalas(salas_id, fecha_reserva, hora_reserva)
+    if (salaDisponible[0].length === 0) {
+      res.json({ disponible: true });
+    } else {
+      res.json({ disponible: false})
+    }
   } catch (error) {
     res.json({ fatal: error.message });
   }

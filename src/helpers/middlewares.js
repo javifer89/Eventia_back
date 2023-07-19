@@ -61,15 +61,12 @@ const checkLogin = async (req, res, next) => {
   if (!iguales) {
     return res.json({ fatal: "error en el email y/o contraseña" });
   }
-  // TODO revisar si es aqui o en Front -> LA COMPROBACIÓN DE ROL -> administrador hace unas cosas y trabajadores otras
-  // Verificar el rol
-  // if (!checkRol(user)) {
-  //   return res.json({ fatal: "El rol no es válido" });
-  // }
 
   res.json({
     succes: "Login correcto",
     token: createToken(user),
+    rol: user.rol,
+    // id: user.id
   });
 
   next();

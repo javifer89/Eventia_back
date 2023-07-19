@@ -1,8 +1,6 @@
 const bcrypt = require("bcryptjs");
 const Staff = require("../models/staff.model");
-
 const { createToken } = require("../helpers/utils");
-const { checkLogin } = require("../helpers/middlewares");
 
 const getAllStaff = async (req, res) => {
   try {
@@ -91,6 +89,7 @@ const login = async (req, res) => {
     res.json({
       succes: "Login correcto",
       token: createToken(user),
+      rol: user.rol
     });
   } catch (error) {
     res.json({ fatal: error.message });
