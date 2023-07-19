@@ -15,10 +15,10 @@ const getAllStaff = async (req, res) => {
 const getById = async (req, res) => {
   try {
     const [staffs] = await Staff.getStaffById(req.params.staffId);
-    if (staff.length === 0) {
+    if (staffs.length === 0) {
       return res.json({ fatal: "no existe este empleado" });
     }
-    res.json([staffs]);
+    res.json(staffs[0]);
   } catch (error) {
     res.json({ fatal: error.message });
   }
@@ -26,12 +26,12 @@ const getById = async (req, res) => {
 
 const getByUser = async (req, res) => {
   try {
-    const [staffs] = await Staff.getByUsuario(req.params.usuario);
-    if (staffs.length === 0) {
+    const [staff] = await Staff.getByUsuario(req.params.usuario);
+    if (staff.length === 0) {
       return res.json({ fatal: "no existe este usuario" });
     }
 
-    res.json([staffs]);
+    res.json(staff[0]);
   } catch (error) {
     res.json({ fatal: error.message });
   }
@@ -40,10 +40,10 @@ const getByUser = async (req, res) => {
 const remove = async (req, res) => {
   try {
     const { staffId } = req.params;
-    const [usuarios] = await Staff.getById(staffId);
+    const [staff] = await Staff.getById(staffId);
     const [result] = await Staff.deleteById(staffId);
 
-    res.json(usuarios[0]);
+    res.json(staff[0]);
     res.send(result);
   } catch (error) {
     res.json({ fatal: error.message });

@@ -4,24 +4,42 @@
 
 ## SALAS
     ## OBTENER SALAS
-    - GET /api/salas/:SALAID
-    - GET /api/salas/usuario/:USERSALA
-    - GET /api/salas/reservadas
-    - GET /api/salas/libres
+    - GET /api/salas/
+    - GET /api/salas/usuario/:SALAID
   
     ## AÑADIR SALAS
     - POST /api/salas/
-    - POST /api/salas/comprobar_salas (para recuperar salas disponibles)
 
     ## EDITAR SALAS
-    - PUT /api/salas/:SALAID
+    - PUT /api/salas/editar/:SALAID
+
+    - POST /api/salas/comprobar_salas (para recuperar salas disponibles)
+
 
     ## ELIMINAR SALAS
     - DELETE /api/salas/:SALAID
 
+
+## USUARIOS
+    ## OBTENER USUARIOS
+    - GET /api/usuarios/
+    - GET /api/usuarios/:USUARIOID
+    - GET /api/usuarios/dni/:DNIUSUARIO
+   
+    ## AÑADIR USUARIOS
+    - POST /api/usuarios/registro
+    - POST /api/usuarios/login
+
+    ## EDITAR USUARIOS
+    - PUT /api/usuarios/editar/:USUARIOID
+
+    ## ELIMINAR USUARIOS
+    - DELETE /api/usuarios/:USUARIOID
+
 ## STAFF
     ## OBTENER STAFF
-    - GET /api/staff/:USUARIO
+    - GET /api/staff/
+    - GET /api/staff/id/:USUARIO
     - GET /api/staff/:STAFFID
    
     ## AÑADIR STAFF
@@ -29,23 +47,7 @@
     - POST /api/staff/login
 
     ## EDITAR STAFF
-    - PUT /api/staff/:STAFFID
+    - PUT /api/staff/editar/:STAFFID
 
     ## ELIMINAR STAFF
     - DELETE /api/staff/:STAFFID
-
-## USUARIOS
-    ## OBTENER USUARIOS
-    - GET /api/usuarios/
-    - GET /api/usuarios/:USUARIOID
-    - GET /api/usuarios/:DNIUSUARIO
-   
-    ## AÑADIR USUARIOS
-    - POST /api/usuarios/registro
-    - POST /api/usuarios/login
-
-    ## EDITAR USUARIOS
-    - PUT /api/usuarios/:USUARIOID
-
-    ## ELIMINAR USUARIOS
-    - DELETE /api/usuarios/:USUARIOID

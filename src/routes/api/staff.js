@@ -6,14 +6,14 @@ const { checkLogin } = require('../../helpers/middlewares');
 //GET
 router.get("/", /*checkLogin,*/ staffController.getAllStaff);
 router.get('/:usuario', /*checkLogin,*/ staffController.getByUser);
-router.get("/:staffId", /*checkLogin,*/ staffController.getById);
+router.get("/id/:staffId", /*checkLogin,*/ staffController.getById);
 
 //POST
 router.post("/registro", staffController.create);
 router.post("/login", staffController.login);
 
 // PUT
-router.put("/:staffId", /*checkLogin,*/ staffController.update);
+router.put("/editar/:staffId", /*checkLogin,*/ staffController.update);
 
 //DELETE
 router.delete("/:staffId", /*checkLogin,*/ staffController.remove);

@@ -18,10 +18,10 @@ const getById = (staffId) => {
   return db.query("select * from staff where id = ?", [staffId]); //donde va el valor que es variable ponemos un ?
 };
 
-const updateById = (staffId, { nombre, rol, usuario, password, email }) => {
+const updateById = (staffId, { nombre, rol, usuario, email }) => {
   return db.query(
-    "update staff set nombre = ?, rol = ?, usuario = ?, password = ?, email = ?",
-    [nombre, rol, usuario, password, email, staffId]
+    "update staff set nombre = ?, rol = ?, usuario = ?, email = ? where id = ?",
+    [nombre, rol, usuario, email, staffId]
   );
 };
 

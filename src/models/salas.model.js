@@ -1,44 +1,40 @@
-const salasReservadas = () => {
-  return db.query("select * from salas where disponible = 0");
-};
-
-const salasLibres = () => {
-  return db.query("select * from salas where disponible = 1");
+const getAllSalas = () => {
+  return db.query("select * from salas");
 };
 
 const salaByid = (salaId) => {
   return db.query("select * from salas where id = ?", [salaId]);
 };
 
-const usuarioSala = (id) => {
-  return db.query("select * from usuarios_has_salas where usuarios_id = ?", [
-    id,
-  ]);
-};
-
+// const usuarioSala = (id) => {
+//   return db.query("select * from usuarios_has_salas where usuarios_id = ?", [
+//     id,
+//   ]);
+// };
 
 const deleteById = (salaId) => {
   return db.query("delete from salas where id = ?", [salaId]);
 };
 
-
 const getById = (salaId) => {
-  return db.query('select * from salas where id = ?', [salaId])
-}
+  return db.query("select * from salas where id = ?", [salaId]);
+};
 
-
-const updateById = (salaId, { precio, disponible, aforo, nombre, direccion }) => {
-  return db.query('update salas set precio = ?, disponible = ?, aforo = ?, nombre = ?, direccion = ?',
-    [precio, disponible, aforo, nombre, direccion, salaId])
-
-}
-
-
-const insert = ({ precio, disponible, aforo, nombre, direccion }) => {
-
+const updateById = (
+  salaId,
+  { precio, aforo, nombre, direccion, descripcion, url_foto }
+) => {
   return db.query(
-    'insert into salas (precio, disponible, aforo, nombre, direccion) values (?, ?, ?, ?, ?)', [precio, disponible, aforo, nombre, direccion]
-  )
+    "update salas set precio = ?, aforo = ?, nombre = ?, direccion = ?, descripcion = ?, url_foto = ?",
+    [precio, aforo, nombre, direccion, descripcion, url_foto, salaId]
+  );
+};
+
+const insert = ({ precio, aforo, nombre, direccion, descripcion, url_foto }) => {
+  return db.query(
+    "insert into salas (precio, aforo, nombre, direccion, descripcion, url_foto) values (?, ?, ?, ?, ?, ?)",
+    [precio, aforo, nombre, direccion, descripcion, url_foto]
+  );
 };
 
 const checkSalas = (salas_id, fecha_reserva, hora_reserva) => {
@@ -49,13 +45,12 @@ const checkSalas = (salas_id, fecha_reserva, hora_reserva) => {
 };
 
 module.exports = {
-  salasReservadas,
-  salasLibres,
-  usuarioSala,
+  getAllSalas,
+  // usuarioSala,
   salaByid,
   deleteById,
   updateById,
   getById,
   insert,
-  checkSalas
+  checkSalas,
 };

@@ -23,11 +23,11 @@ const getById = (usuarioId) => {
 
 const updateById = (
   usuarioId,
-  { username, email, telefono, dni, password, nombre, direccion }
+  { username, email, telefono, dni, nombre, direccion }
 ) => {
   return db.query(
-    "update usuarios set username = ?, email = ?, telefono = ?, dni = ?, password = ?, nombre = ?, direccion = ? where id = ?",
-    [username, email, telefono, dni, password, nombre, direccion, usuarioId]
+    "update usuarios set username = ?, email = ?, telefono = ?, dni = ?, nombre = ?, direccion = ? where id = ?",
+    [username, email, telefono, dni, nombre, direccion, usuarioId]
   );
 };
 

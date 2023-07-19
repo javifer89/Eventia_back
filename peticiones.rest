@@ -7,15 +7,13 @@
 #########################
 ##      API salas      ##
 #########################
-GET {{host}}:{{port}}{{apiSalas}}/reservadas
+GET {{host}}:{{port}}{{apiSalas}}
 ###
-GET {{host}}:{{port}}{{apiSalas}}/libres
+
+GET {{host}}:{{port}}{{apiSalas}}/usuario/1
 
 ###
-GET {{host}}:{{port}}{{apiSalas}}/usuario/3
-
-###
-GET {{host}}:{{port}}{{apiSalas}}/usersala
+# GET {{host}}:{{port}}{{apiSalas}}/usersala
 
 ###
 POST {{host}}:{{port}}{{apiSalas}}
@@ -23,14 +21,15 @@ Content-Type: application/json
 
 {
   "precio": "100",
-  "disponible": true,
   "aforo": 120,
   "nombre":"los cisnes",
-  "direccion":"estanque 57"
+  "direccion":"estanque 57",
+  "descripcion": "sala bonita",
+  "url_foto": "lo que sea"
 }
 
 ###
-PUT {{host}}:{{port}}{{apiSalas}}/1
+PUT {{host}}:{{port}}{{apiSalas}}/editar/19
 Content-Type: application/json
 
 {
@@ -38,7 +37,9 @@ Content-Type: application/json
   "disponible": true,
   "aforo": 60,
   "nombre": "Una Sala",
-  "direccion": "Casa Mario, 123"
+  "direccion": "Casa Mario, 123",
+  "descripcion": "sala bonita",
+  "url_foto": "lo que sea"
 }
 
 ###
@@ -48,12 +49,12 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJleHAiOjE2
 
 {
   "salas_id": "1",
-  "fecha_reserva": "2023-07-23",
-  "hora_reserva": "10:00:00"
+  "fecha_reserva": "2023-07-13",
+  "hora_reserva": "08:00:00"
 }
 
 ###
-DELETE {{host}}:{{port}}{{apiSalas}}/14
+DELETE {{host}}:{{port}}{{apiSalas}}/20
 
 
 #########################
@@ -64,7 +65,7 @@ GET {{host}}:{{port}}{{apiUsuarios}}
 ###
 GET {{host}}:{{port}}{{apiUsuarios}}/1
 ###
-GET {{host}}:{{port}}{{apiUsuarios}}/987654321-B
+GET {{host}}:{{port}}{{apiUsuarios}}/dni/123456789-A
 
 ###
 POST {{host}}:{{port}}{{apiUsuarios}}/registro
@@ -73,10 +74,10 @@ Content-Type: application/json
 {
   "nombre": "pilar",
   "direccion":"Rio de Janeiro, 26",
-  "email": "pili@aaauuuur.com",
+  "email": "pili@aaruuur.com",
   "telefono":"644444444",
-  "dni":"78880rugg0m",
-  "username":"piliuuusiiiiiii",
+  "dni":"78878rugg0m",
+  "username":"piliiiiiiii",
   "password":"123456"
 }
 
@@ -90,7 +91,7 @@ Content-Type: application/json
 }
 
 ###
-PUT {{host}}:{{port}}{{apiUsuarios}}/editar/7
+PUT {{host}}:{{port}}{{apiUsuarios}}/editar/6
 Content-Type: application/json
 
 {
@@ -98,20 +99,19 @@ Content-Type: application/json
   "email": "pepe22@gmail.com",
   "telefono": "626626626",
   "dni": "53601579w",
-  "password": "pepe",
-  "nombre": "Er Pepe",
+  "nombre": "Er Pepe2",
   "direccion": "Calle esta app me saca de mis casillas"
 }
 ###
-DELETE {{host}}:{{port}}{{apiUsuarios}}/12
+DELETE {{host}}:{{port}}{{apiUsuarios}}/7
 
 #########################
 ##      API staff      ##
 #########################
-GET {{host}}:{{port}}{{apiStaff}}/2
+GET {{host}}:{{port}}{{apiStaff}}
 
 ###
-GET {{host}}:{{port}}{{apiStaff}}/
+GET {{host}}:{{port}}{{apiStaff}}/id/3
 
 ###
 GET {{host}}:{{port}}{{apiStaff}}/pedritogar
@@ -121,11 +121,11 @@ POST {{host}}:{{port}}{{apiStaff}}/registro
 Content-Type: application/json
 
 {
-  "nombre": "Julito2",
+  "nombre": "Javito",
   "rol":"trabajador",
-  "usuario": "julito2",
+  "usuario": "javito2",
   "password":"654987",
-  "email":"julio22123@agosto.com"
+  "email":"javito@agosto.com"
 }
 
 ###
@@ -133,12 +133,12 @@ POST {{host}}:{{port}}{{apiStaff}}/login
 Content-Type: application/json
 
 {
-  "email":"julio@agosto.com",
+  "email":"javito@agosto.com",
   "password":"654987"
 }
 
 ###
-PUT {{host}}:{{port}}{{apiStaff}}/6
+PUT {{host}}:{{port}}{{apiStaff}}/editar/21
 Content-Type: application/json
 
 {
@@ -146,9 +146,8 @@ Content-Type: application/json
   "rol": "trabajador",
   "usuario": "anaita",
   "nombre": "La Ana",
-  "password": "La Ana",
-  "email": "anacaces@ana.com"
+  "email": "asdfasdfasdfasdf@ana.com"
 }
 
 ###
-DELETE {{host}}:{{port}}{{apiStaff}}/6
+DELETE {{host}}:{{port}}{{apiStaff}}/22

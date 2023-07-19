@@ -1,20 +1,28 @@
 const Sala = require("../models/salas.model");
 
-const getReservadas = async (req, res) => {
-  try {
-    const [salas] = await Sala.salasReservadas();
-    res.json([salas]);
-  } catch (error) {
-    res.json({ fatal: error.message });
-  }
-};
+// const getReservadas = async (req, res) => {
+//   try {
+//     const [salas] = await Sala.salasReservadas();
+//     res.json([salas]);
+//   } catch (error) {
+//     res.json({ fatal: error.message });
+//   }
+// };
 
-//TODO CAMBIAR RESERVADAS Y LIBRES CON FUNCIÓN COMPROBARSALAS
+// //TODO CAMBIAR RESERVADAS Y LIBRES CON FUNCIÓN COMPROBARSALAS
 
-const getLibres = async (req, res) => {
+// const getLibres = async (req, res) => {
+//   try {
+//     const [salas] = await Sala.salasLibres();
+//     res.json([salas]);
+//   } catch (error) {
+//     res.json({ fatal: error.message });
+//   }
+// };
+const getAll = async (req, res) => {
   try {
-    const [salas] = await Sala.salasLibres();
-    res.json([salas]);
+    const [salas] = await Sala.getAllSalas();
+    res.json(salas);
   } catch (error) {
     res.json({ fatal: error.message });
   }
@@ -26,20 +34,20 @@ const getById = async (req, res) => {
     if (salas.length === 0) {
       return res.json({ fatal: "no existe esta sala" });
     }
-    res.json([salas]);
+    res.json(salas[0]);
   } catch (error) {
     res.json({ fatal: error.message });
   }
 };
 
-const getByUsuario = async (req, res) => {
-  try {
-    const [salas] = await Sala.usuarioSala(req.params.usersala);
-    res.json([salas]);
-  } catch (error) {
-    res.json({ fatal: error.message });
-  }
-};
+// const getByUsuario = async (req, res) => {
+//   try {
+//     const [salas] = await Sala.usuarioSala(req.params.usersala);
+//     res.json(salas[0]);
+//   } catch (error) {
+//     res.json({ fatal: error.message });
+//   }
+// };
 
 const remove = async (req, res) => {
   try {
@@ -69,11 +77,12 @@ const update = async (req, res) => {
 
 const create = async (req, res) => {
   try {
+
     const [result] = await Sala.insert(req.body);
-    const [usuarios] = await Usuario.getById(usuarioId);
+    console.log(result)
+    const [salas] = await Sala.getById(result.insertId);
 
-    res.json(usuarios[0])
-
+    res.json(salas[0])
   } catch (error) {
     res.json({ fatal: error.message });
   }
@@ -94,9 +103,8 @@ const comprobarSala = async (req, res) => {
 };
 
 module.exports = {
-  getReservadas,
-  getLibres,
-  getByUsuario,
+  getAll,
+  // getByUsuario,
   getById,
   remove,
   update,

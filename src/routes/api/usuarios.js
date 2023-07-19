@@ -7,7 +7,7 @@ const { checkUsuarioId } = require("../../helpers/middlewares");
 //GET
 router.get("/", usuariosController.getAll);
 router.get('/:usuarioId',/*checkUsuarioId,*/ usuariosController.getById);
-router.get('/:dniusuario', usuariosController.getByDni);
+router.get('/dni/:dniusuario', usuariosController.getByDni);
 
 //POST
 router.post('/registro', usuariosController.create);

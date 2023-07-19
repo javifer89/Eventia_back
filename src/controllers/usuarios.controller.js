@@ -29,7 +29,7 @@ const getByDni = async (req, res) => {
     if (usuarios.length === 0) {
       return res.json({ fatal: "no existe este usuario con este dni" });
     }
-    res.json([usuarios]);
+    res.json(usuarios[0]);
   } catch (error) {
     res.json({ fatal: error.message });
   }
