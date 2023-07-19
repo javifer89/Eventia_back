@@ -9,6 +9,8 @@ const getReservadas = async (req, res) => {
   }
 };
 
+//TODO CAMBIAR RESERVADAS Y LIBRES CON FUNCIÓN COMPROBARSALAS
+
 const getLibres = async (req, res) => {
   try {
     const [salas] = await Sala.salasLibres();
@@ -40,7 +42,6 @@ const getByUsuario = async (req, res) => {
 };
 
 const remove = async (req, res) => {
-  console.log(req.params)
   try {
     const { salaId } = req.params;
     const [salas] = await Sala.getById(salaId);
@@ -55,15 +56,12 @@ const remove = async (req, res) => {
 };
 
 const update = async (req, res) => {
-  console.log(req.params)
   try {
     const { salaId } = req.params
     const [result] = await Sala.updateById(salaId, req.body)
-
     const [salas] = await Sala.getById(salaId);
 
     res.json(salas[0])
-
   } catch (error) {
     res.json({ fatal: error.message })
   }

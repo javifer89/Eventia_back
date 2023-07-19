@@ -54,21 +54,21 @@ const update = async (req, res) => {
   try {
     const { staffId } = req.params;
     const [result] = await Staff.updateById(staffId, req.body);
-    const [usuarios] = await Staff.getById(usuarioId);
+    const [staff] = await Staff.getById(staffId);
 
-    res.json(result[0]);
+    res.json(staff[0]);
   } catch (error) {
     res.json({ fatal: error.message });
   }
 };
 
 const create = async (req, res) => {
-  req.body.password = bcrypt.hashSync(req.body.password, 6); // encriptamos la password
+  req.body.password = bcrypt.hashSync(req.body.password, 6);
   try {
     const [result] = await Staff.insert(req.body);
-     const [usuarios] = await Staff.getStaffById(result.insertId);
+     const [staffCreado] = await Staff.getStaffById(result.insertId);
 
-    res.json(usuarios[0]);
+    res.json(staffCreado[0]);
   } catch (error) {
     res.json({ fatal: error.message });
   }
