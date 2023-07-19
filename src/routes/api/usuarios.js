@@ -6,7 +6,7 @@ const { checkUsuarioId } = require("../../helpers/middlewares");
 
 //GET
 router.get("/", usuariosController.getAll);
-router.get('/:usuarioId',checkUsuarioId, usuariosController.getById);
+router.get('/:usuarioId',/*checkUsuarioId,*/ usuariosController.getById);
 router.get('/:dniusuario', usuariosController.getByDni);
 
 //POST
@@ -15,10 +15,10 @@ router.post("/login", usuariosController.login);
 
 
 // PUT
-router.put("/:usuarioId", checkUsuarioId, usuariosController.update);
+router.put("/:usuarioId", /*checkUsuarioId,*/ usuariosController.update);
 
 //DELETE
-router.delete("/:usuarioId", checkUsuarioId, usuariosController.remove);
+router.delete("/:usuarioId", /*checkUsuarioId,*/ usuariosController.remove);
 
 
 module.exports = router;
