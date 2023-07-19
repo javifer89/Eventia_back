@@ -6,8 +6,8 @@ const salasLibres = () => {
   return db.query("select * from salas where disponible = 1");
 };
 
-const salaByid = (id) => {
-  return db.query("select * from salas where id = ?", [id]);
+const salaByid = (salaId) => {
+  return db.query("select * from salas where id = ?", [salaId]);
 };
 
 const usuarioSala = (id) => {

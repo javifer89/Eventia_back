@@ -17,7 +17,7 @@ const getById = async (req, res) => {
     if (usuarios.length === 0) {
       return res.json({ fatal: "no existe este usuario" });
     }
-    res.json([usuarios]);
+    res.json(usuarios[0]);
   } catch (error) {
     res.json({ fatal: error.message });
   }
@@ -54,8 +54,6 @@ const update = async (req, res) => {
   try {
     const { usuarioId } = req.params;
     const [result] = await Usuario.updateById(usuarioId, req.body);
-
-    //Puedo devolver el usuario modificado cuando tenga el geyById de gustavo.
     const [usuarios] = await Usuario.getById(usuarioId);
 
     res.json(usuarios[0]);
@@ -69,7 +67,6 @@ const create = async (req, res) => {
   req.body.password = bcrypt.hashSync(req.body.password, 6);
   try {
     const [result] = await Usuario.insert(req.body);
-    //const [usuarios] = await Usuario.
     const [usuarioCreado] = await Usuario.getById(result.insertId);
 
     res.json(usuarioCreado[0]);
