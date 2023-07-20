@@ -37,6 +37,11 @@ const getByUser = async (req, res) => {
   }
 };
 
+const getPerfil = async (req, res) => {
+  //req.user son los datos del usuario
+  res.json(req.user)
+}
+
 const remove = async (req, res) => {
   try {
     const { staffId } = req.params;
@@ -66,7 +71,7 @@ const create = async (req, res) => {
   req.body.password = bcrypt.hashSync(req.body.password, 6);
   try {
     const [result] = await Staff.insert(req.body);
-     const [staffCreado] = await Staff.getStaffById(result.insertId);
+    const [staffCreado] = await Staff.getStaffById(result.insertId);
 
     res.json(staffCreado[0]);
   } catch (error) {
@@ -104,5 +109,6 @@ module.exports = {
   remove,
   update,
   create,
-  login
+  login,
+  getPerfil
 };

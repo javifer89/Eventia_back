@@ -117,6 +117,10 @@ GET {{host}}:{{port}}{{apiStaff}}/id/3
 GET {{host}}:{{port}}{{apiStaff}}/pedritogar
 
 ###
+GET {{host}}:{{port}}{{apiStaff}}/perfil
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2ODk4Njg2MTcsImlhdCI6MTY4OTgzOTgxN30.BRWChjKxT5gbADWrJNgxxXB7FXolkJwGfWB0hsBd6Ec
+
+###
 POST {{host}}:{{port}}{{apiStaff}}/registro
 Content-Type: application/json
 
