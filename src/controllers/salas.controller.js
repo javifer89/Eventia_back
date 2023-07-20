@@ -52,11 +52,10 @@ const getById = async (req, res) => {
 const remove = async (req, res) => {
   try {
     const { salaId } = req.params;
-    const [salas] = await Sala.getById(salaId);
+
     const [result] = await Sala.deleteById(salaId);
 
-    res.json(salas[0])
-    res.send(result)
+    res.json(result)
 
   } catch (error) {
     res.json({ fatal: error.message });
@@ -95,7 +94,7 @@ const comprobarSala = async (req, res) => {
     if (salaDisponible[0].length === 0) {
       res.json({ disponible: true });
     } else {
-      res.json({ disponible: false})
+      res.json({ disponible: false })
     }
   } catch (error) {
     res.json({ fatal: error.message });

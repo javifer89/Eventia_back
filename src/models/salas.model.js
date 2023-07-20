@@ -25,7 +25,7 @@ const updateById = (
   { precio, aforo, nombre, direccion, descripcion, url_foto }
 ) => {
   return db.query(
-    "update salas set precio = ?, aforo = ?, nombre = ?, direccion = ?, descripcion = ?, url_foto = ?",
+    "update salas set precio = ?, aforo = ?, nombre = ?, direccion = ?, descripcion = ?, url_foto = ? where id = ?",
     [precio, aforo, nombre, direccion, descripcion, url_foto, salaId]
   );
 };
