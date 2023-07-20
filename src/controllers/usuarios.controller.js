@@ -39,12 +39,9 @@ const remove = async (req, res) => {
   try {
     const { usuarioId } = req.params;
 
-    const [usuarios] = await Usuario.getById(usuarioId);
-
-    res.json(usuarios[0]);
     const [result] = await Usuario.deleteById(usuarioId);
 
-    res.send(result);
+    res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });
   }
