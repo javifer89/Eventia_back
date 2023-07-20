@@ -45,11 +45,10 @@ const getPerfil = async (req, res) => {
 const remove = async (req, res) => {
   try {
     const { staffId } = req.params;
-    const [staff] = await Staff.getById(staffId);
     const [result] = await Staff.deleteById(staffId);
 
-    res.json(staff[0]);
-    res.send(result);
+    res.json(result);
+
   } catch (error) {
     res.json({ fatal: error.message });
   }
