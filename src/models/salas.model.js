@@ -22,18 +22,46 @@ const getById = (salaId) => {
 
 const updateById = (
   salaId,
-  { precio, aforo, nombre, direccion, descripcion, url_foto }
+  {
+    precio,
+    aforo,
+    nombre,
+    direccion,
+    descripcion,
+    url_foto,
+    telefono_contacto,
+    email_contacto,
+  }
 ) => {
   return db.query(
-    "update salas set precio = ?, aforo = ?, nombre = ?, direccion = ?, descripcion = ?, url_foto = ? where id = ?",
-    [precio, aforo, nombre, direccion, descripcion, url_foto, salaId]
+    "update salas set precio = ?, aforo = ?, nombre = ?, direccion = ?, descripcion = ?, url_foto = ?, telefono_contacto = ?, email_contacto= ? where id = ?",
+    [
+      precio,
+      aforo,
+      nombre,
+      direccion,
+      descripcion,
+      url_foto,
+      telefono_contacto,
+      email_contacto,
+      salaId,
+    ]
   );
 };
 
-const insert = ({ precio, aforo, nombre, direccion, descripcion, url_foto }) => {
+const insert = ({ precio, aforo, nombre, direccion, descripcion, url_foto, telefono_contacto, email_contacto }) => {
   return db.query(
-    "insert into salas (precio, aforo, nombre, direccion, descripcion, url_foto) values (?, ?, ?, ?, ?, ?)",
-    [precio, aforo, nombre, direccion, descripcion, url_foto]
+    "insert into salas (precio, aforo, nombre, direccion, descripcion, url_foto, telefono_contacto, email_contacto) values (?, ?, ?, ?, ?, ?, ?, ?)",
+    [
+      precio,
+      aforo,
+      nombre,
+      direccion,
+      descripcion,
+      url_foto,
+      telefono_contacto,
+      email_contacto,
+    ]
   );
 };
 

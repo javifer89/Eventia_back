@@ -25,7 +25,9 @@ Content-Type: application/json
   "nombre":"los cisnes",
   "direccion":"estanque 57",
   "descripcion": "sala bonita",
-  "url_foto": "lo que sea"
+  "url_foto": "lo que sea",
+  "telefono_contacto":"682222131",
+  "email_contacto":"loscisnes@teatro.com"
 }
 
 ###
@@ -39,7 +41,9 @@ Content-Type: application/json
   "nombre": "Una Sala",
   "direccion": "Casa Mario, 123",
   "descripcion": "sala bonita",
-  "url_foto": "lo que sea"
+  "url_foto": "lo que sea",
+  "telefono_contacto":"682322131",
+  "email_contacto":"loscisnes2@teatro.com"
 }
 
 ###
