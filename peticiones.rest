@@ -3,6 +3,7 @@
 @apiSalas = /api/salas
 @apiUsuarios = /api/usuarios
 @apiStaff = /api/staff
+@apiContacto = /api/contacto
 
 #########################
 ##      API salas      ##
@@ -159,3 +160,19 @@ Content-Type: application/json
 
 ###
 DELETE {{host}}:{{port}}{{apiStaff}}/22
+
+#########################
+##     API contacto    ##
+#########################
+GET {{host}}:{{port}}{{apiContacto}}
+###
+
+POST {{host}}:{{port}}{{apiContacto}}
+Content-Type: application/json
+
+{
+  "nombre": "safasdfasdanana",
+  "apellidos": "anananana",
+  "email":"javito@agosto.com",
+  "mensaje":"Esto es un mensaje del formulario de contacto"
+}
