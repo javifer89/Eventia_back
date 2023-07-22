@@ -8,5 +8,6 @@ router.use("/salas", /*checkToken,*/ require("./api/salas"));
 
 router.use("/staff", require("./api/staff"));
 
+router.use("/reservas", require("./api/reservas"));
 
 module.exports = router;
