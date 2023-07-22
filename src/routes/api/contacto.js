@@ -4,7 +4,7 @@ const contactoController = require("../../controllers/contacto.controller");
 
 
 //GET
-router.get("/", contactoController.getFormulario);
+router.get("/id/:formId", contactoController.getFormulario);
 
 
 //POST

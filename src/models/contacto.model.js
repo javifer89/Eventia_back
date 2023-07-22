@@ -1,5 +1,5 @@
-const getForm = () => {
-  return db.query("select * from datos_formulario_contacto");
+const getForm = (formId) => {
+  return db.query("select * from datos_formulario_contacto where id = ?",[formId]);
 };
 
 const insert = ({nombre, apellidos, email, mensaje}) => {
