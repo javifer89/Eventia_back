@@ -2,83 +2,69 @@ const getAllReservas = () => {
   return db.query("select * from usuarios_has_salas");
 };
 
-const reservaByid = (reservaId) => {
-  return db.query("select * from usuarios_has_salas where id = ?", [reservaId]);
+const reservaByid = (id_reserva) => {
+  return db.query("select * from usuarios_has_salas where id = ?", [
+    id_reserva,
+  ]);
 };
 
-
-const deleteById = (salaId) => {
-  return db.query("delete from salas where id = ?", [salaId]);
+const deleteById = (id_reserva) => {
+  return db.query("delete from usuarios_has_salas where id = ?", [id_reserva]);
 };
 
 const updateById = (
-  salaId,
+  id_reserva,
   {
-    precio,
-    aforo,
-    nombre,
-    direccion,
-    descripcion,
-    url_foto,
-    telefono_contacto,
-    email_contacto,
+    usuarios_id,
+    salas_id,
+    fecha_reserva,
+    hora_reserva,
+    fecha_fin_reserva,
+    hora_fin_reserva,
   }
 ) => {
   return db.query(
-    "update salas set precio = ?, aforo = ?, nombre = ?, direccion = ?, descripcion = ?, url_foto = ?, telefono_contacto = ?, email_contacto= ? where id = ?",
+    "update usuarios_has_salas set usuarios_id = ?, salas_id= ?, fecha_reserva= ?, hora_reserva= ?, fecha_fin_reserva= ?, hora_fin_reserva = ? where id_reserva = ?",
     [
-      precio,
-      aforo,
-      nombre,
-      direccion,
-      descripcion,
-      url_foto,
-      telefono_contacto,
-      email_contacto,
-      salaId,
+      usuarios_id,
+      salas_id,
+      fecha_reserva,
+      hora_reserva,
+      fecha_fin_reserva,
+      hora_fin_reserva,
+      id_reserva,
     ]
   );
 };
 
 const insert = ({
-  precio,
-  aforo,
-  nombre,
-  direccion,
-  descripcion,
-  url_foto,
-  telefono_contacto,
-  email_contacto,
+  usuarios_id,
+  salas_id,
+  id_reserva,
+  fecha_reserva,
+  hora_reserva,
+  fecha_fin_reserva,
+  hora_fin_reserva,
 }) => {
   return db.query(
-    "insert into salas (precio, aforo, nombre, direccion, descripcion, url_foto, telefono_contacto, email_contacto) values (?, ?, ?, ?, ?, ?, ?, ?)",
+    "insert into usuarios_has_salas (usuarios_id, salas_id, id_reserva, fecha_reserva, hora_reserva, fecha_fin_reserva, hora_fin_reserva) values (?, ?, ?, ?, ?, ?, ?)",
     [
-      precio,
-      aforo,
-      nombre,
-      direccion,
-      descripcion,
-      url_foto,
-      telefono_contacto,
-      email_contacto,
+      usuarios_id,
+      salas_id,
+      id_reserva,
+      fecha_reserva,
+      hora_reserva,
+      fecha_fin_reserva,
+      hora_fin_reserva,
     ]
   );
 };
 
-const checkSalas = (salas_id, fecha_reserva, hora_reserva) => {
-  return db.query(
-    "select * from usuarios_has_salas where salas_id = ? and fecha_reserva= ? and hora_reserva= ?",
-    [salas_id, fecha_reserva, hora_reserva]
-  );
-};
-
 module.exports = {
-  getAllSalas,
-  // usuarioSala,
-  salaByid,
+  getAllReservas,
+  reservaByid,
   deleteById,
   updateById,
   getById,
   insert,
-  checkSalas,
 };

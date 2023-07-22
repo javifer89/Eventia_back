@@ -4,18 +4,18 @@ const reservasController = require("../../controllers/reservas.controller");
 
 
 //GET
-router.get("/", reservasController.getAll);
+router.get("/", reservasController.getAllReservas);
 // router.get("/usuario/:usersala", /*checkToken,*/ reservasController.getByUsuario);
-router.get("/:salaId", /*checkToken,*/ reservasController.getById);
+router.get("/:id_reserva", /*checkToken,*/ reservasController.reservaById);
 
 //POST
 router.post("/", reservasController.create);
-router.post("/comprobar_salas", reservasController.comprobarSala);
+
 
 //PUT
-router.put("/editar/:salaId", reservasController.update);
+router.put("/editar/:id_reserva", reservasController.updateById);
 
 //DELETE
-router.delete("/:salaId", reservasController.remove);
+router.delete("/:id_reserva", reservasController.deleteById);
 
 module.exports = router;
