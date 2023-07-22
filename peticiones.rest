@@ -11,7 +11,7 @@
 GET {{host}}:{{port}}{{apiSalas}}
 ###
 
-GET {{host}}:{{port}}{{apiSalas}}/usuario/1
+GET {{host}}:{{port}}{{apiSalas}}/1
 
 ###
 # GET {{host}}:{{port}}{{apiSalas}}/usersala
@@ -164,7 +164,7 @@ DELETE {{host}}:{{port}}{{apiStaff}}/22
 #########################
 ##     API contacto    ##
 #########################
-GET {{host}}:{{port}}{{apiContacto}}
+GET {{host}}:{{port}}{{apiContacto}}/id/1
 ###
 
 POST {{host}}:{{port}}{{apiContacto}}
