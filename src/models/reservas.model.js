@@ -3,13 +3,15 @@ const getAllReservas = () => {
 };
 
 const reservaByid = (id_reserva) => {
-  return db.query("select * from usuarios_has_salas where id = ?", [
+  return db.query("select * from usuarios_has_salas where id_reserva = ?", [
     id_reserva,
   ]);
 };
 
 const deleteById = (id_reserva) => {
-  return db.query("delete from usuarios_has_salas where id = ?", [id_reserva]);
+  return db.query("delete from usuarios_has_salas where id_reserva = ?", [
+    id_reserva,
+  ]);
 };
 
 const updateById = (
@@ -65,6 +67,5 @@ module.exports = {
   reservaByid,
   deleteById,
   updateById,
-  getById,
   insert,
 };
