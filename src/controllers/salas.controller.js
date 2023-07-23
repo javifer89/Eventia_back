@@ -31,20 +31,24 @@ const getAll = async (req, res) => {
 
 const getById = async (req, res) => {
   try {
-    const [salas] = await Sala.salaByid(req.params.salaId);
-    if (salas.length === 0) {
+    const [sala] = await Sala.salaByid(req.params.salaId);
+
+    if (sala.length === 0) {
       return res.json({ fatal: "no existe esta sala" });
     }
 
-    const [reservas] = await Reserva.reservaByid(req.params.salaId);
-    salas[0].reservas = {
-      title: reservas.title,
-      description: reservas.description,
-      start: reservas.start,
-      end: reservas.end,
-    };
+    const [reservas] = await Reserva.reservasBySala(sala[0].id);
 
-    res.json(salas[0]);
+    sala[0].reservas = reservas.map((reserva) => {
+      return {
+        title: reserva.titulo,
+        description: reserva.descripcion,
+        start: reserva.fecha_reserva,
+        end: reserva.fecha_fin_reserva,
+      };
+    });
+
+    res.json(sala[0]);
   } catch (error) {
     res.json({ fatal: error.message });
   }
