@@ -1,5 +1,4 @@
-const Reserva = require("../models/salas.model");
-
+const Reserva = require("../models/reservas.model");
 
 const getAll = async (req, res) => {
   try {
@@ -12,13 +11,13 @@ const getAll = async (req, res) => {
 
 const getById = async (req, res) => {
   try {
-      const [reservas] = await Reserva.reservaByid(req.params.id_reserva); //revisar req.params
-      console.log(reservas)
+    const [reservas] = await Reserva.reservaByid(req.params.id_reserva); //revisar req.params
+    console.log(reservas);
     if (reservas.length === 0) {
       return res.json({ fatal: "no existe esa reserva" });
     }
-      res.json(reservas[0]);
-      res.json(result);
+    res.json(reservas[0]);
+    res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });
   }
@@ -42,8 +41,8 @@ const update = async (req, res) => {
     const [result] = await Reserva.updateById(reservaId, req.body);
     const [reservas] = await Reserva.getById(reservaId);
 
-      res.json(reservas[0]);
-      res.json(result);
+    res.json(reservas[0]);
+    res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });
   }
@@ -53,10 +52,10 @@ const create = async (req, res) => {
   try {
     const [result] = await Reserva.insert(req.body);
     console.log(result);
-    const [reservas] = await Reserva.getById(result.insertId);
+    const [reservas] = await Reserva.reservaByid(result.insertId);
 
-    res.json(result);
-    res.json(salas[0]);
+    // res.json(result);
+    res.json(reservas[0]);
   } catch (error) {
     res.json({ fatal: error.message });
   }
