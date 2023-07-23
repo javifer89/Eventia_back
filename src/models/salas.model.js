@@ -49,7 +49,16 @@ const updateById = (
   );
 };
 
-const insert = ({ precio, aforo, nombre, direccion, descripcion, url_foto, telefono_contacto, email_contacto }) => {
+const insert = ({
+  precio,
+  aforo,
+  nombre,
+  direccion,
+  descripcion,
+  url_foto,
+  telefono_contacto,
+  email_contacto,
+}) => {
   return db.query(
     "insert into salas (precio, aforo, nombre, direccion, descripcion, url_foto, telefono_contacto, email_contacto) values (?, ?, ?, ?, ?, ?, ?, ?)",
     [
