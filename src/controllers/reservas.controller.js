@@ -38,9 +38,9 @@ const remove = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    const { salaId } = req.params;
-    const [result] = await Sala.updateById(salaId, req.body);
-    const [reservas] = await Sala.getById(salaId);
+    const { reservaId } = req.params;
+    const [result] = await Reserva.updateById(reservaId, req.body);
+    const [reservas] = await Reserva.getById(reservaId);
 
       res.json(reservas[0]);
       res.json(result);
@@ -51,10 +51,11 @@ const update = async (req, res) => {
 
 const create = async (req, res) => {
   try {
-    const [result] = await Sala.insert(req.body);
+    const [result] = await Reserva.insert(req.body);
     console.log(result);
-    const [salas] = await Sala.getById(result.insertId);
+    const [reservas] = await Reserva.getById(result.insertId);
 
+    res.json(result);
     res.json(salas[0]);
   } catch (error) {
     res.json({ fatal: error.message });
