@@ -1,4 +1,10 @@
 const Sala = require("../models/salas.model");
+const NodeGeocoder = require('node-geocoder');
+
+const options = {
+  provider: 'google',
+  apiKey: 'AIzaSyBMOcTcAkobrlfKIBOJNz6lDw2R5fJsk_Q',
+};
 
 // const getReservadas = async (req, res) => {
 //   try {
@@ -76,6 +82,14 @@ const update = async (req, res) => {
 
 const create = async (req, res) => {
   try {
+    //Transformamos la direccion en coordenadas de latitud y longitud
+    const geocoder = NodeGeocoder(options);
+
+    // Using callback
+    const localizacion = await geocoder.geocode(req.body.direccion);
+    req.body.latitud = localizacion[0].latitude
+    req.body.longitud = localizacion[0].longitude
+    //
 
     const [result] = await Sala.insert(req.body);
     console.log(result)

@@ -30,10 +30,10 @@ const updateById = (
   );
 };
 
-const insert = ({ precio, aforo, nombre, direccion, descripcion, url_foto }) => {
+const insert = ({ precio, aforo, nombre, direccion, descripcion, url_foto, latitud, longitud }) => {
   return db.query(
-    "insert into salas (precio, aforo, nombre, direccion, descripcion, url_foto) values (?, ?, ?, ?, ?, ?)",
-    [precio, aforo, nombre, direccion, descripcion, url_foto]
+    "insert into salas (precio, aforo, nombre, direccion, descripcion, url_foto, latitud, longitud) values (?, ?, ?, ?, ?, ?, ?, ?)",
+    [precio, aforo, nombre, direccion, descripcion, url_foto, latitud, longitud]
   );
 };
 
