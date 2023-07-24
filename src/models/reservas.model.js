@@ -60,9 +60,9 @@ const insert = ({
     [
       usuarios_id,
       salas_id,
-      fecha_reserva,
+      `${fecha_reserva}T${hora_reserva}`,
       hora_reserva,
-      fecha_fin_reserva,
+      `${fecha_fin_reserva}T${hora_fin_reserva}`,
       hora_fin_reserva,
       titulo,
       descripcion
