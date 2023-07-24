@@ -1,5 +1,6 @@
 const Sala = require("../models/salas.model");
 const Reserva = require("../models/reservas.model");
+const dayjs = require("dayjs");
 
 // const getReservadas = async (req, res) => {
 //   try {
@@ -30,7 +31,7 @@ const getAll = async (req, res) => {
 };
 
 const getById = async (req, res) => {
-  try {
+  // try {
     const [sala] = await Sala.salaByid(req.params.salaId);
 
     if (sala.length === 0) {
@@ -38,7 +39,9 @@ const getById = async (req, res) => {
     }
 
     const [reservas] = await Reserva.reservasBySala(sala[0].id);
-    sala[0].reservas = reservas.map((reserva) => {
+  sala[0].reservas = reservas.map((reserva) => {
+      //transformo a string las fechas y horas de reserva
+
       return {
         title: reserva.titulo,
         description: reserva.descripcion,
@@ -48,9 +51,9 @@ const getById = async (req, res) => {
     });
 
     res.json(sala[0]);
-  } catch (error) {
-    res.json({ fatal: error.message });
-  }
+  // } catch (error) {
+  //   res.json({ fatal: error.message });
+  // }
 };
 
 // const getByUsuario = async (req, res) => {
