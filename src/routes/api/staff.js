@@ -4,20 +4,22 @@ const staffController = require('../../controllers/staff.controller');
 const { checkLogin, checkToken } = require('../../helpers/middlewares');
 
 //GET
-router.get("/", /*checkLogin,*/ staffController.getAllStaff);
-router.get("/id/:staffId", /*checkLogin,*/ staffController.getById);
+router.get("/", checkToken, staffController.getAllStaff);
+router.get("/id/:staffId", checkToken, staffController.getById);
 router.get("/perfil", checkToken, staffController.getPerfil);
-router.get('/:usuario', /*checkLogin,*/ staffController.getByUser);
+router.get("/:usuario", checkToken, staffController.getByUser);
+
+//TODO Es necesario utilizar checktoken o checklogin?
 
 //POST
 router.post("/registro", staffController.create);
 router.post("/login", staffController.login);
 
 // PUT
-router.put("/editar/:staffId", /*checkLogin,*/ staffController.update);
+router.put("/editar/:staffId", checkToken, staffController.update);
 
 //DELETE
-router.delete("/:staffId", /*checkLogin,*/ staffController.remove);
+router.delete("/:staffId", checkToken, staffController.remove);
 
 
 
