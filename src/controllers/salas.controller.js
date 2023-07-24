@@ -38,7 +38,6 @@ const getById = async (req, res) => {
     }
 
     const [reservas] = await Reserva.reservasBySala(sala[0].id);
-
     sala[0].reservas = reservas.map((reserva) => {
       return {
         title: reserva.titulo,
