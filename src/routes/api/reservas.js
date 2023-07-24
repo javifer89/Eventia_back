@@ -2,20 +2,20 @@ const router = require("express").Router();
 
 const reservasController = require("../../controllers/reservas.controller");
 
-const { checkToken } = require("../../helpers/middlewares");
+const { checkTokenUsuario } = require("../../helpers/middlewares");
 //GET
 router.get("/", reservasController.getAll);
 // router.get("/usuario/:usersala", /*checkToken,*/ reservasController.getByUsuario);
-router.get("/:id_reserva", /*checkToken,*/ reservasController.getById);
+router.get("/:id_reserva", checkTokenUsuario, reservasController.getById);
 
 //POST
-router.post("/", checkToken, reservasController.create);
+router.post("/", checkTokenUsuario, reservasController.create);
 
 
 //PUT
-router.put("/editar/:id_reserva", reservasController.update);
+router.put("/editar/:id_reserva", checkTokenUsuario, reservasController.update);
 
 //DELETE
-router.delete("/:id_reserva", reservasController.remove);
+router.delete("/:id_reserva", checkTokenUsuario, reservasController.remove);
 
 module.exports = router;
