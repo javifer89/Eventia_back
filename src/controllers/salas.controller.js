@@ -90,7 +90,6 @@ const update = async (req, res) => {
     const [result] = await Sala.updateById(salaId, req.body);
     const [salas] = await Sala.getById(salaId);
 
-<<<<<<< HEAD
     res.json(salas[0])
   } catch (error) {
     res.json({ fatal: error.message })
@@ -113,25 +112,11 @@ const create = async (req, res) => {
     const [salas] = await Sala.getById(result.insertId);
 
     res.json(salas[0])
-=======
-    res.json(salas[0]);
->>>>>>> feature/reservasBack
   } catch (error) {
     res.json({ fatal: error.message });
   }
 };
 
-const create = async (req, res) => {
-  try {
-    const [result] = await Sala.insert(req.body);
-    console.log(result);
-    const [salas] = await Sala.getById(result.insertId);
-
-    res.json(salas[0]);
-  } catch (error) {
-    res.json({ fatal: error.message });
-  }
-};
 
 const comprobarSala = async (req, res) => {
   try {
