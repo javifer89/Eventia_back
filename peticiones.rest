@@ -162,16 +162,16 @@ DELETE {{host}}:{{port}}{{apiStaff}}/22
 
 
 ###
-GET http://localhost:3000/api/salas/4
+GET http://localhost:3000/api/salas/11
 
 
 ###
 POST http://localhost:3000/api/reservas
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyMjI1ODEsImlhdCI6MTY5MDE5Mzc4MX0.fqZo175e8Ndp_li7CE83kByskFD9DzhvF8UU2VEnC7s
 
 {
-  "usuarios_id": "3",
-  "salas_id": "4",
+  "salas_id": "11",
   "fecha_reserva": "2023-08-31",
   "fecha_fin_reserva": "2023-08-31",
   "hora_reserva": "21:00",
