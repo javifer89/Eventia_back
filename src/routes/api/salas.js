@@ -6,11 +6,9 @@ const { checkToken } = require('../../helpers/middlewares');
 //GET
 router.get("/", salasController.getAll)
 router.get("/:salaId", salasController.getById);
-//TODO Consultar si es necesario checktoken en el get
-
 
 //POST
-router.post("/", salasController.create);
+router.post("/", checkToken, salasController.create);
 router.post("/comprobar_salas", checkToken, salasController.comprobarSala);
 
 //PUT
