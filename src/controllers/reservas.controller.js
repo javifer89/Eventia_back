@@ -50,6 +50,7 @@ const update = async (req, res) => {
 
 const create = async (req, res) => {
   try {
+    req.body.usuarios_id = req.user.id
     const [result] = await Reserva.insert(req.body);
     console.log(result);
     const [reservas] = await Reserva.reservaByid(result.insertId);
