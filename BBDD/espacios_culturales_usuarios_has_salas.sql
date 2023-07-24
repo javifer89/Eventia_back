@@ -28,10 +28,12 @@ CREATE TABLE `usuarios_has_salas` (
   `usuarios_id` int NOT NULL,
   `salas_id` int NOT NULL,
   `id_reserva` int NOT NULL AUTO_INCREMENT,
-  `fecha_reserva` date NOT NULL,
-  `fecha_fin_reserva` date NOT NULL,
+  `fecha_reserva` datetime NOT NULL,
+  `fecha_fin_reserva` datetime NOT NULL,
   `hora_reserva` time NOT NULL,
   `hora_fin_reserva` time NOT NULL,
+  `titulo` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descripcion` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id_reserva`),
   KEY `fk_usuarios_has_Salas_Salas1_idx` (`salas_id`),
   KEY `fk_usuarios_has_Salas_usuarios_idx` (`usuarios_id`),
@@ -58,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-18 12:36:29
+-- Dump completed on 2023-07-24 15:35:43
