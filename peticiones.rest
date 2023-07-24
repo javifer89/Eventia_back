@@ -24,7 +24,7 @@ Content-Type: application/json
   "precio": "100",
   "aforo": 120,
   "nombre":"los cisnes",
-  "direccion":"estanque 57",
+  "direccion":"calle achuri 19",
   "descripcion": "sala bonita",
   "url_foto": "lo que sea",
   "telefono_contacto":"682222131",
