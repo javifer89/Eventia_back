@@ -6,6 +6,9 @@ const options = {
   apiKey: 'AIzaSyBMOcTcAkobrlfKIBOJNz6lDw2R5fJsk_Q',
 };
 
+const Reserva = require("../models/reservas.model");
+const dayjs = require("dayjs");
+
 // const getReservadas = async (req, res) => {
 //   try {
 //     const [salas] = await Sala.salasReservadas();
@@ -35,15 +38,29 @@ const getAll = async (req, res) => {
 };
 
 const getById = async (req, res) => {
-  try {
-    const [salas] = await Sala.salaByid(req.params.salaId);
-    if (salas.length === 0) {
+  // try {
+    const [sala] = await Sala.salaByid(req.params.salaId);
+
+    if (sala.length === 0) {
       return res.json({ fatal: "no existe esta sala" });
     }
-    res.json(salas[0]);
-  } catch (error) {
-    res.json({ fatal: error.message });
-  }
+
+    const [reservas] = await Reserva.reservasBySala(sala[0].id);
+  sala[0].reservas = reservas.map((reserva) => {
+      //transformo a string las fechas y horas de reserva
+
+      return {
+        title: reserva.titulo,
+        description: reserva.descripcion,
+        start: reserva.fecha_reserva,
+        end: reserva.fecha_fin_reserva,
+      };
+    });
+
+    res.json(sala[0]);
+  // } catch (error) {
+  //   res.json({ fatal: error.message });
+  // }
 };
 
 // const getByUsuario = async (req, res) => {
@@ -61,8 +78,7 @@ const remove = async (req, res) => {
 
     const [result] = await Sala.deleteById(salaId);
 
-    res.json(result)
-
+    res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });
   }
@@ -70,10 +86,11 @@ const remove = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    const { salaId } = req.params
-    const [result] = await Sala.updateById(salaId, req.body)
+    const { salaId } = req.params;
+    const [result] = await Sala.updateById(salaId, req.body);
     const [salas] = await Sala.getById(salaId);
 
+<<<<<<< HEAD
     res.json(salas[0])
   } catch (error) {
     res.json({ fatal: error.message })
@@ -96,19 +113,38 @@ const create = async (req, res) => {
     const [salas] = await Sala.getById(result.insertId);
 
     res.json(salas[0])
+=======
+    res.json(salas[0]);
+>>>>>>> feature/reservasBack
   } catch (error) {
     res.json({ fatal: error.message });
   }
-}
+};
+
+const create = async (req, res) => {
+  try {
+    const [result] = await Sala.insert(req.body);
+    console.log(result);
+    const [salas] = await Sala.getById(result.insertId);
+
+    res.json(salas[0]);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+};
 
 const comprobarSala = async (req, res) => {
   try {
     const { salas_id, fecha_reserva, hora_reserva } = req.body;
-    const salaDisponible = await Sala.checkSalas(salas_id, fecha_reserva, hora_reserva)
+    const salaDisponible = await Sala.checkSalas(
+      salas_id,
+      fecha_reserva,
+      hora_reserva
+    );
     if (salaDisponible[0].length === 0) {
       res.json({ disponible: true });
     } else {
-      res.json({ disponible: false })
+      res.json({ disponible: false });
     }
   } catch (error) {
     res.json({ fatal: error.message });
@@ -122,5 +158,5 @@ module.exports = {
   remove,
   update,
   create,
-  comprobarSala
+  comprobarSala,
 };
