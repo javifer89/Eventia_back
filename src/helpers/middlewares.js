@@ -34,7 +34,34 @@ const checkToken = async (req, res, next) => {
   //4. Recuperamos el USUARIO asociado al token
   //Función que recupere de la BD el usuario de su ID (getById)
   const [staff] = await Staff.getById(obj.userId);
+  console.log(staff[0])
   req.user = staff[0];
+  //si logramos pasar las comprobaciones del Middleware checkToken, a partir de ahí tendremos acceso SIEMPRE a req.user
+  //req.user es el valor del usuario LOGADO en la aplicación
+  next();
+};
+
+const checkTokenUsuario = async (req, res, next) => {
+  //1. comprobamos si el token viene incluido en la petición (headers -Authorization)
+  // console.log('Pasa por el checkToken');
+  if (!req.headers["authorization"]) {
+    return res.json({ fatal: "Necesitas la cabecera de autorización" });
+  }
+  const token = req.headers["authorization"];
+  //2. Comprobamos si el token es correcto
+  //3. Comprobamos si el token está caducado (opcional)
+  let obj;
+  try {
+    obj = jwt.verify(token, "esta es la verificación del token");
+  } catch (error) {
+    res.json({ fatal: "El token es incorrecto" });
+  }
+  console.log(obj);
+  //4. Recuperamos el USUARIO asociado al token
+  //Función que recupere de la BD el usuario de su ID (getById)
+  const [usuario] = await Usuario.getById(obj.userId);
+  console.log(usuario[0])
+  req.user = usuario[0];
   //si logramos pasar las comprobaciones del Middleware checkToken, a partir de ahí tendremos acceso SIEMPRE a req.user
   //req.user es el valor del usuario LOGADO en la aplicación
   next();
@@ -75,6 +102,7 @@ const checkLogin = async (req, res, next) => {
 module.exports = {
   checkUsuarioId,
   checkToken,
+  checkTokenUsuario,
   checkLogin,
   checkRol,
 };
