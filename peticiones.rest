@@ -154,7 +154,6 @@ Content-Type: application/json
   "nombre": "anananana",
   "rol": "trabajador",
   "usuario": "anaita",
-  "nombre": "La Ana",
   "email": "asdfasdfasdfasdf@ana.com"
 }
 
