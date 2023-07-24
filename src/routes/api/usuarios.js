@@ -15,10 +15,10 @@ router.post("/login", usuariosController.login);
 
 
 // PUT
-router.put("/editar/:usuarioId", /*checkUsuarioId,*/ usuariosController.update);
+router.put("/editar/:usuarioId", checkToken, usuariosController.update);
 
 //DELETE
-router.delete("/:usuarioId", /*checkUsuarioId,*/ usuariosController.remove);
+router.delete("/:usuarioId", checkToken, usuariosController.remove);
 
 
 module.exports = router;
