@@ -2,7 +2,7 @@ const Reserva = require("../models/reservas.model");
 
 const getAll = async (req, res) => {
   try {
-    const [reservas] = await Sala.getAllReservas();
+    const [reservas] = await Reserva.getAllReservas();
     res.json(reservas);
   } catch (error) {
     res.json({ fatal: error.message });

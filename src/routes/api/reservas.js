@@ -13,7 +13,7 @@ router.post("/", checkTokenUsuario, reservasController.create);
 
 
 //PUT
-router.put("/editar/:id_reserva", reservasController.update);
+router.put("/editar", reservasController.update);
 
 //DELETE
 router.delete("/:id_reserva", reservasController.remove);

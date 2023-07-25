@@ -3,7 +3,9 @@
 @apiSalas = /api/salas
 @apiUsuarios = /api/usuarios
 @apiStaff = /api/staff
+@apiReservas = /api/reservas
 @apiContacto = /api/contacto
+
 
 #########################
 ##      API salas      ##
@@ -130,11 +132,11 @@ POST {{host}}:{{port}}{{apiStaff}}/registro
 Content-Type: application/json
 
 {
-  "nombre": "Javito",
-  "rol":"trabajador",
-  "usuario": "javito2",
-  "password":"654987",
-  "email":"javito@agosto.com"
+  "nombre": "claudia",
+  "rol":"administrador",
+  "usuario": "claudia",
+  "password":"claudia",
+  "email":"claudia@.com"
 }
 
 ###
@@ -142,8 +144,8 @@ POST {{host}}:{{port}}{{apiStaff}}/login
 Content-Type: application/json
 
 {
-  "email":"javito@agosto.com",
-  "password":"654987"
+  "email":"claudia@.com",
+  "password":"claudia"
 }
 
 ###
@@ -165,6 +167,18 @@ DELETE {{host}}:{{port}}{{apiStaff}}/22
 GET http://localhost:3000/api/salas/11
 
 
+
+#########################
+##     API reservas    ##
+#########################
+
+
+GET {{host}}:{{port}}{{apiReservas}}
+
+###
+GET {{host}}:{{port}}{{apiReservas}}/3
+
+
 ###
 POST http://localhost:3000/api/reservas
 Content-Type: application/json
@@ -179,3 +193,23 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJ1c2VyUm9s
   "titulo": "reserva 21",
   "descripcion": "asdfasdfasdfasdf"
 }
+
+###
+PUT {{host}}:{{port}}{{apiReservas}}/editar/
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzMDI0MTQsImlhdCI6MTY5MDI3MzYxNH0.nsnLROUkwZNz1EUDWyfV0or2Cz8f6L0P572pQ0FVNkE
+
+{
+  "usuarios_id": "7",
+  "salas_id": "11",
+  "fecha_reserva": "2023-08-30",
+  "fecha_fin_reserva": "2023-08-31",
+  "hora_reserva": "21:00",
+  "hora_fin_reserva": "22:00",
+  "titulo": "reserva 21",
+  "descripcion": "asdfasdfasdfasdf",
+  "aceptada": "1"
+}
+
+###
+DELETE {{host}}:{{port}}{{apiReservas}}/1
