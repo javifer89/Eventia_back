@@ -5,20 +5,17 @@ const { checkToken } = require('../../helpers/middlewares');
 
 //GET
 router.get("/", salasController.getAll)
-// router.get("/usuario/:usersala", /*checkToken,*/ salasController.getByUsuario);
-router.get("/:salaId", /*checkToken,*/ salasController.getById);
-
-
+router.get("/:salaId", salasController.getById);
 
 //POST
-router.post("/", salasController.create);
-router.post("/comprobar_salas", salasController.comprobarSala);
+router.post("/", checkToken, salasController.create);
+router.post("/comprobar_salas", checkToken, salasController.comprobarSala);
 
 //PUT
-router.put('/editar/:salaId', salasController.update);
+router.put("/editar/:salaId", checkToken, salasController.update);
 
 //DELETE
-router.delete('/:salaId', salasController.remove);
+router.delete("/:salaId", checkToken, salasController.remove);
 
 
 module.exports = router

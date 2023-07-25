@@ -2,7 +2,7 @@ const getAllReservas = () => {
   return db.query("select * from usuarios_has_salas");
 };
 
-const reservaByid = (id_reserva) => {
+const reservaById = (id_reserva) => {
   return db.query("select * from usuarios_has_salas where id_reserva = ?", [
     id_reserva,
   ]);
@@ -72,7 +72,7 @@ const insert = ({
 
 module.exports = {
   getAllReservas,
-  reservaByid,
+  reservaById,
   deleteById,
   updateById,
   insert,

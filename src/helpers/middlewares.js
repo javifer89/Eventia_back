@@ -60,7 +60,7 @@ const checkTokenUsuario = async (req, res, next) => {
   //4. Recuperamos el USUARIO asociado al token
   //Función que recupere de la BD el usuario de su ID (getById)
   const [usuario] = await Usuario.getById(obj.userId);
-  console.log(usuario[0])
+  console.log(usuario[0]);
   req.user = usuario[0];
   //si logramos pasar las comprobaciones del Middleware checkToken, a partir de ahí tendremos acceso SIEMPRE a req.user
   //req.user es el valor del usuario LOGADO en la aplicación

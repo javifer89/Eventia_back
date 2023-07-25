@@ -1,24 +1,21 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-const usuariosController = require('../../controllers/usuarios.controller');
-const { checkUsuarioId } = require("../../helpers/middlewares");
-
+const usuariosController = require("../../controllers/usuarios.controller");
+const { checkToken } = require("../../helpers/middlewares");
 
 //GET
-router.get("/", usuariosController.getAll);
-router.get('/:usuarioId',/*checkUsuarioId,*/ usuariosController.getById);
-router.get('/dni/:dniusuario', usuariosController.getByDni);
+router.get("/", checkToken, usuariosController.getAll);
+router.get("/:usuarioId", checkToken, usuariosController.getById);
+router.get("/dni/:dniusuario", checkToken, usuariosController.getByDni);
 
 //POST
-router.post('/registro', usuariosController.create);
+router.post("/registro", usuariosController.create);
 router.post("/login", usuariosController.login);
 
-
 // PUT
-router.put("/editar/:usuarioId", /*checkUsuarioId,*/ usuariosController.update);
+router.put("/editar/:usuarioId", checkToken, usuariosController.update);
 
 //DELETE
-router.delete("/:usuarioId", /*checkUsuarioId,*/ usuariosController.remove);
-
+router.delete("/:usuarioId", checkToken, usuariosController.remove);
 
 module.exports = router;
