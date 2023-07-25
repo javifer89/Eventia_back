@@ -2,7 +2,7 @@ const Reserva = require("../models/reservas.model");
 
 const getAll = async (req, res) => {
   try {
-    const [reservas] = await Sala.getAllReservas();
+    const [reservas] = await Reserva.getAllReservas();
     res.json(reservas);
   } catch (error) {
     res.json({ fatal: error.message });
@@ -41,10 +41,10 @@ const update = async (req, res) => {
     req.body.usuarios_id = req.user.id
     const [result] = await Reserva.updateById(+id_reserva, req.body);
 
-    const [reservas] = await Reserva.reservaByid(+id_reserva);
+    const [reservas] = await Reserva.reservaById(+id_reserva);
 
-    res.json({ reservas, result });
-
+    // res.json({ reservas, result });
+res.json( reservas);
     // res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });
@@ -56,7 +56,7 @@ const create = async (req, res) => {
     req.body.usuarios_id = req.user.id;
     const [result] = await Reserva.insert(req.body);
     console.log(result);
-    const [reservas] = await Reserva.reservaByid(result.insertId);
+    const [reservas] = await Reserva.reservaById(result.insertId);
 
     // res.json(result);
     res.json(reservas[0]);

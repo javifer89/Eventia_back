@@ -172,7 +172,7 @@ DELETE {{host}}:{{port}}{{apiStaff}}/9
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDIwMDUsImlhdCI6MTY5MDIxMzIwNX0.1SeVdPcLo5Ln1PvIOM-nL8OA9tlRTB5-vQp20jCO4nM
 
 #########################
-##      API staff      ##
+##      API reservas   ##
 #########################
 
 GET http://localhost:3000/api/salas/29
@@ -196,7 +196,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImV4cCI6MTY5
 ###
 PUT http://localhost:3000/api/reservas/editar/5
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImV4cCI6MTY5MDI0MjU5MiwiaWF0IjoxNjkwMjEzNzkyfQ.RnOSjXFd14FFQwICxPw1UdFgwhXrpTRVaLil8TS6LeY
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImV4cCI6MTY5MDI5NzU4NiwiaWF0IjoxNjkwMjY4Nzg2fQ.JOIe5USPQmMRJMyK_NT_jmbjRUpgjg3U4deoyRg6LNs
 
 {
   "salas_id": "29",
