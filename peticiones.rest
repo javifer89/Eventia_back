@@ -3,7 +3,9 @@
 @apiSalas = /api/salas
 @apiUsuarios = /api/usuarios
 @apiStaff = /api/staff
+@apiReservas = /api/reservas
 @apiContacto = /api/contacto
+
 
 #########################
 ##      API salas      ##
@@ -139,11 +141,11 @@ POST {{host}}:{{port}}{{apiStaff}}/registro
 Content-Type: application/json
 
 {
-  "nombre": "Javito",
-  "rol":"trabajador",
-  "usuario": "javito2",
-  "password":"654987",
-  "email":"javito@agosto.com"
+  "nombre": "claudia",
+  "rol":"administrador",
+  "usuario": "claudia",
+  "password":"claudia",
+  "email":"claudia@.com"
 }
 
 ###
@@ -151,8 +153,8 @@ POST {{host}}:{{port}}{{apiStaff}}/login
 Content-Type: application/json
 
 {
-  "email":"javito@agosto.com",
-  "password":"654987"
+  "email":"claudia@.com",
+  "password":"claudia"
 }
 
 ###
@@ -176,6 +178,18 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9s
 #########################
 
 GET http://localhost:3000/api/salas/29
+
+
+
+#########################
+##     API reservas    ##
+#########################
+
+
+GET {{host}}:{{port}}{{apiReservas}}
+
+###
+GET {{host}}:{{port}}{{apiReservas}}/3
 
 
 ###
@@ -211,3 +225,21 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImV4cCI6MTY5
 ###
 DELETE http://localhost:3000/api/reservas/29
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImV4cCI6MTY5MDI0MjU5MiwiaWF0IjoxNjkwMjEzNzkyfQ.RnOSjXFd14FFQwICxPw1UdFgwhXrpTRVaLil8TS6LeY
+PUT {{host}}:{{port}}{{apiReservas}}/editar/
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzMDI0MTQsImlhdCI6MTY5MDI3MzYxNH0.nsnLROUkwZNz1EUDWyfV0or2Cz8f6L0P572pQ0FVNkE
+
+{
+  "usuarios_id": "7",
+  "salas_id": "11",
+  "fecha_reserva": "2023-08-30",
+  "fecha_fin_reserva": "2023-08-31",
+  "hora_reserva": "21:00",
+  "hora_fin_reserva": "22:00",
+  "titulo": "reserva 21",
+  "descripcion": "asdfasdfasdfasdf",
+  "aceptada": "1"
+}
+
+###
+DELETE {{host}}:{{port}}{{apiReservas}}/1

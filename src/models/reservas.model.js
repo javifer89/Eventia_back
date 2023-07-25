@@ -9,9 +9,9 @@ const reservaById = (id_reserva) => {
 };
 
 const reservasBySala = (id_sala) => {
-    return db.query("select * from usuarios_has_salas where salas_id = ?", [
-      id_sala,
-    ]);
+  return db.query("select * from usuarios_has_salas where salas_id = ?", [
+    id_sala,
+  ]);
 }
 
 const deleteById = (id_reserva) => {
@@ -29,10 +29,11 @@ const updateById = (
     hora_reserva,
     fecha_fin_reserva,
     hora_fin_reserva,
+    aceptada
   }
 ) => {
   return db.query(
-    "update usuarios_has_salas set usuarios_id = ?, salas_id= ?, fecha_reserva= ?, hora_reserva= ?, fecha_fin_reserva= ?, hora_fin_reserva = ? where id_reserva = ?",
+    "update usuarios_has_salas set usuarios_id = ?, salas_id= ?, fecha_reserva= ?, hora_reserva= ?, fecha_fin_reserva= ?, hora_fin_reserva = ?, aceptada = ? where id_reserva = ?",
     [
       usuarios_id,
       salas_id,
@@ -41,6 +42,7 @@ const updateById = (
       fecha_fin_reserva,
       hora_fin_reserva,
       id_reserva,
+      aceptada
     ]
   );
 };
