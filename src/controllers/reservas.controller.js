@@ -25,9 +25,9 @@ const getById = async (req, res) => {
 
 const remove = async (req, res) => {
   try {
-    const { reservaId } = req.params;
+    const { id_reserva } = req.params;
 
-    const [result] = await Reserva.deleteById(reservaId);
+    const [result] = await Reserva.deleteById(id_reserva);
 
     res.json(result);
   } catch (error) {
@@ -44,12 +44,24 @@ const update = async (req, res) => {
     const [reservas] = await Reserva.reservaById(+id_reserva);
 
     // res.json({ reservas, result });
-res.json( reservas);
+    res.json(reservas);
     // res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });
   }
 };
+
+const aceptar = async (req, res) => {
+  try {
+    const { id_reserva } = req.params;
+    const [result] = await Reserva.aceptarById(id_reserva, req.body.aceptada);
+    const [reserva] = await Reserva.reservaById(id_reserva);
+    res.json(reserva)
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+}
+
 
 const create = async (req, res) => {
   try {
@@ -65,28 +77,13 @@ const create = async (req, res) => {
   }
 };
 
-// const comprobarSala = async (req, res) => {
-//   try {
-//     const { salas_id, fecha_reserva, hora_reserva } = req.body;
-//     const salaDisponible = await Sala.checkSalas(
-//       salas_id,
-//       fecha_reserva,
-//       hora_reserva
-//     );
-//     if (salaDisponible[0].length === 0) {
-//       res.json({ disponible: true });
-//     } else {
-//       res.json({ disponible: false });
-//     }
-//   } catch (error) {
-//     res.json({ fatal: error.message });
-//   }
-// };
+
 
 module.exports = {
   getAll,
   getById,
   remove,
   update,
+  aceptar,
   create,
 };
