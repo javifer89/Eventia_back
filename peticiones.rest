@@ -195,7 +195,7 @@ GET {{host}}:{{port}}{{apiReservas}}/3
 ###
 POST http://localhost:3000/api/reservas
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImV4cCI6MTY5MDI0MjU5MiwiaWF0IjoxNjkwMjEzNzkyfQ.RnOSjXFd14FFQwICxPw1UdFgwhXrpTRVaLil8TS6LeY
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
 
 {
   "salas_id": "29",
@@ -234,8 +234,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9s
 
 
 ###
-DELETE http://localhost:3000/api/reservas/29
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImV4cCI6MTY5MDI0MjU5MiwiaWF0IjoxNjkwMjEzNzkyfQ.RnOSjXFd14FFQwICxPw1UdFgwhXrpTRVaLil8TS6LeY
+DELETE http://localhost:3000/api/reservas/5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
 
 
 ###

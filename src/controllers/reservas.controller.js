@@ -25,9 +25,9 @@ const getById = async (req, res) => {
 
 const remove = async (req, res) => {
   try {
-    const { reservaId } = req.params;
+    const { id_reserva } = req.params;
 
-    const [result] = await Reserva.deleteById(reservaId);
+    const [result] = await Reserva.deleteById(id_reserva);
 
     res.json(result);
   } catch (error) {
@@ -77,23 +77,7 @@ const create = async (req, res) => {
   }
 };
 
-// const comprobarSala = async (req, res) => {
-//   try {
-//     const { salas_id, fecha_reserva, hora_reserva } = req.body;
-//     const salaDisponible = await Sala.checkSalas(
-//       salas_id,
-//       fecha_reserva,
-//       hora_reserva
-//     );
-//     if (salaDisponible[0].length === 0) {
-//       res.json({ disponible: true });
-//     } else {
-//       res.json({ disponible: false });
-//     }
-//   } catch (error) {
-//     res.json({ fatal: error.message });
-//   }
-// };
+
 
 module.exports = {
   getAll,
