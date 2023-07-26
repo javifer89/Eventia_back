@@ -29,11 +29,13 @@ const updateById = (
     hora_reserva,
     fecha_fin_reserva,
     hora_fin_reserva,
+    titulo,
+    descripcion,
     aceptada
   }
 ) => {
   return db.query(
-    "update usuarios_has_salas set usuarios_id = ?, salas_id= ?, fecha_reserva= ?, hora_reserva= ?, fecha_fin_reserva= ?, hora_fin_reserva = ?, aceptada = ? where id_reserva = ?",
+    "update usuarios_has_salas set usuarios_id = ?, salas_id= ?, fecha_reserva= ?, hora_reserva= ?, fecha_fin_reserva= ?, hora_fin_reserva = ?, titulo = ?, descripcion = ?, aceptada = ? where id_reserva = ?",
     [
       usuarios_id,
       salas_id,
@@ -41,11 +43,22 @@ const updateById = (
       hora_reserva,
       fecha_fin_reserva,
       hora_fin_reserva,
-      id_reserva,
-      aceptada
+      titulo,
+      descripcion,
+      aceptada,
+      id_reserva
     ]
   );
 };
+
+
+const aceptarById = (id_reserva, aceptada) => {
+  return db.query(
+    "update usuarios_has_salas set aceptada = ? where id_reserva = ?", [aceptada, id_reserva])
+}
+
+
+
 
 const insert = ({
   usuarios_id,
@@ -77,6 +90,7 @@ module.exports = {
   reservaById,
   deleteById,
   updateById,
+  aceptarById,
   insert,
   reservasBySala
 };
