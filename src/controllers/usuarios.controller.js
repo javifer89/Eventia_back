@@ -35,6 +35,11 @@ const getByDni = async (req, res) => {
   }
 };
 
+const getPerfil = async (req, res) => {
+  console.log(req)
+  res.json(req.user)
+}
+
 const remove = async (req, res) => {
   try {
     const { usuarioId } = req.params;
@@ -101,6 +106,7 @@ module.exports = {
   getAll,
   getById,
   getByDni,
+  getPerfil,
   update,
   create,
   login,
