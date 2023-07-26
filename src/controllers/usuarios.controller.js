@@ -13,7 +13,7 @@ const getAll = async (req, res) => {
 
 const getById = async (req, res) => {
   try {
-    const [usuarios] = await Usuario.usuarioByid(req.params.usuarioId);
+    const [usuarios] = await Usuario.usuarioById(req.params.usuarioId);
     if (usuarios.length === 0) {
       return res.json({ fatal: "no existe este usuario" });
     }

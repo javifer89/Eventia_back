@@ -1,5 +1,7 @@
 const bcrypt = require("bcryptjs");
 const Staff = require("../models/staff.model");
+const Usuario = require("../models/usuarios.model");
+
 const { createToken } = require("../helpers/utils");
 
 const getAllStaff = async (req, res) => {
@@ -100,6 +102,30 @@ const login = async (req, res) => {
   }
 }
 
+const aceptarStaff = async (req, res) => {
+  try {
+    const { staffId } = req.params;
+    const [result] = await Staff.aceptarStaffById(staffId, req.body.aceptada);
+    const [staff] = await Staff.getStaffById(staffId);
+    res.json(staff);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+};
+
+const aceptarUsuario = async (req, res) => {
+  try {
+    const { usuarioId } = req.params;
+    const [result] = await Staff.aceptarUsuarioById(usuarioId, req.body.aceptada);
+    const [usuario] = await Usuario.usuarioById(usuarioId);
+    res.json(usuario);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+};
+
+
+
 
 module.exports = {
   getAllStaff,
@@ -109,5 +135,7 @@ module.exports = {
   update,
   create,
   login,
-  getPerfil
+  getPerfil,
+  aceptarStaff,
+  aceptarUsuario
 };

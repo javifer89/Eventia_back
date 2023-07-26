@@ -36,6 +36,21 @@ const getByEmail = (email) => {
   return db.query("select * from staff where email = ?", [email]);
 };
 
+
+const aceptarStaffById = (staffId, aceptada) => {
+  return db.query("update staff set aceptada = ? where id = ?", [
+    aceptada,
+    staffId,
+  ]);
+};
+
+const aceptarUsuarioById = (usuarioId, aceptada) => {
+  return db.query(
+    "update usuarios set aceptada = ? where id = ?",
+    [aceptada, usuarioId]
+  );
+};
+
 module.exports = {
   getStaff,
   getStaffById,
@@ -45,4 +60,6 @@ module.exports = {
   getById,
   insert,
   getByEmail,
+  aceptarStaffById,
+  aceptarUsuarioById,
 };
