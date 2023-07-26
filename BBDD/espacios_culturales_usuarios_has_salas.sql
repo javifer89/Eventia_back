@@ -34,12 +34,13 @@ CREATE TABLE `usuarios_has_salas` (
   `hora_fin_reserva` time NOT NULL,
   `titulo` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `descripcion` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `aceptada` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_reserva`),
   KEY `fk_usuarios_has_Salas_Salas1_idx` (`salas_id`),
   KEY `fk_usuarios_has_Salas_usuarios_idx` (`usuarios_id`),
   CONSTRAINT `fk_usuarios_has_Salas_Salas1` FOREIGN KEY (`salas_id`) REFERENCES `salas` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_usuarios_has_Salas_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,6 +49,7 @@ CREATE TABLE `usuarios_has_salas` (
 
 LOCK TABLES `usuarios_has_salas` WRITE;
 /*!40000 ALTER TABLE `usuarios_has_salas` DISABLE KEYS */;
+INSERT INTO `usuarios_has_salas` VALUES (7,23,3,'2023-07-28 11:00:00','2023-07-28 12:00:00','11:00:00','12:00:00','yoga','clase de yoga',1),(7,22,8,'2023-07-28 11:00:00','2023-07-28 12:00:00','11:00:00','12:00:00','ggggg','hhhhhh',0);
 /*!40000 ALTER TABLE `usuarios_has_salas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +62,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-24 15:35:43
+-- Dump completed on 2023-07-26 13:31:47

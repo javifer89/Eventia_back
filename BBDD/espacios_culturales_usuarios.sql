@@ -38,7 +38,7 @@ CREATE TABLE `usuarios` (
   UNIQUE KEY `dni_UNIQUE` (`dni`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Juan Rodriguez','123456789-A','123456789','Calle Principal 1','juancho@gmail.com','juancho','password1'),(4,'Lauri Ronda','654321987-D','111222333','Plaza Mayor 10','lauri@gmail.com','lauri','password1'),(5,'Pedri Sanchez','321654987-E','999888777','Calle del Sol 15','pedri@gmail.com','pedri','password1'),(6,'Ana León','987123654-F','777777777','Avenida del Parque 8','anusqui@gmail.com','anusqui','password1');
+INSERT INTO `usuarios` VALUES (7,'claudia','99999999d','666666666','calle piruleta, 33','claudia@gmail.com','claudia','$2a$06$q1uVA/QG/XdZaIgmThPmqeVLuJV.UyaSNHsXrt93y7j/28ZNUSODW'),(8,'mari','49067519d','666666666','calle guachi222','mari@gmail.com','mari','$2a$06$FMO52u8EL0Xrn8Q5Fn54IuXE816es0.naRZeXcYYZiGb/Sbedmkf6');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-24 15:35:43
+-- Dump completed on 2023-07-26 13:31:47
