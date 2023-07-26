@@ -15,6 +15,8 @@ router.post("/login", staffController.login);
 
 // PUT
 router.put("/editar/:staffId", checkToken, staffController.update);
+router.put("/aceptar/staff/:staffId", checkToken, staffController.aceptarStaff);
+router.put("/aceptar/:usuarioId", checkToken, staffController.aceptarUsuario);
 
 //DELETE
 router.delete("/:staffId", checkToken, staffController.remove);

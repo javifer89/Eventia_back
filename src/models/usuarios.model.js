@@ -5,7 +5,7 @@ const getUsuarios = () => {
 const getByEmail = (email) => {
   return db.query("select * from usuarios where email = ?", [email]);
 };
-const usuarioByid = (id) => {
+const usuarioById = (id) => {
   return db.query("select * from usuarios where id = ?", [id]);
 };
 
@@ -49,7 +49,7 @@ const insert = ({
 module.exports = {
   getUsuarios,
   getByEmail,
-  usuarioByid,
+  usuarioById,
   usuarioByDNI,
   deleteById,
   updateById,
