@@ -168,6 +168,25 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9s
   "usuario": "anaita",
   "email": "asdfasdfasdfasdf@ana.com"
 }
+###
+
+PUT {{host}}:{{port}}{{apiStaff}}/aceptar/14
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
+
+{
+  "aceptada":1
+}
+
+###
+PUT {{host}}:{{port}}{{apiStaff}}/aceptar/staff/20
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
+
+{
+  "aceptada":1
+}
+
 
 ###
 DELETE {{host}}:{{port}}{{apiStaff}}/9
@@ -257,4 +276,3 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9s
 }
 
 ###
-
