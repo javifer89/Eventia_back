@@ -39,6 +39,7 @@ const getByUser = async (req, res) => {
 
 const getPerfil = async (req, res) => {
   //req.user son los datos del usuario
+  console.log(req)
   res.json(req.user)
 }
 

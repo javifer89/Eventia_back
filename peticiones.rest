@@ -76,6 +76,12 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9s
 GET {{host}}:{{port}}{{apiUsuarios}}/1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDEzNTMsImlhdCI6MTY5MDIxMjU1M30.nKJHh6UkWLO6RFFnVGWtUUZHqajbQNd55iynN4MehFM
 
+
+###
+GET {{host}}:{{port}}{{apiUsuarios}}/perfil
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyLCJleHAiOjE2OTA0MTIxMDIsImlhdCI6MTY5MDM4MzMwMn0.zJZ86aQ1b7ztZQYZq2S7W7bsJxo9jnG6Nm_nHr_fH5I
+
+###
 ###
 GET {{host}}:{{port}}{{apiUsuarios}}/dni/123456789-A
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDEzNTMsImlhdCI6MTY5MDIxMjU1M30.nKJHh6UkWLO6RFFnVGWtUUZHqajbQNd55iynN4MehFM
@@ -85,13 +91,13 @@ POST {{host}}:{{port}}{{apiUsuarios}}/registro
 Content-Type: application/json
 
 {
-  "nombre": "pilar",
+  "nombre": "urraca",
   "direccion":"Rio de Janeiro, 26",
-  "email": "pili@aaruuur.com",
+  "email": "urraca@aaruuur.com",
   "telefono":"644444444",
-  "dni":"78878rugg0m",
-  "username":"piliiiiiiii",
-  "password":"123456"
+  "dni":"12345678A",
+  "username":"urraca",
+  "password":"urraca"
 }
 
 ###
@@ -99,8 +105,8 @@ POST {{host}}:{{port}}{{apiUsuarios}}/login
 Content-Type: application/json
 
 {
-  "email": "pili@aaruuur.com",
-  "password":"123456"
+  "email": "urraca@aaruuur.com",
+  "password":"urraca"
 }
 
 ###
@@ -134,7 +140,7 @@ GET {{host}}:{{port}}{{apiStaff}}/javito2
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDIwMDUsImlhdCI6MTY5MDIxMzIwNX0.1SeVdPcLo5Ln1PvIOM-nL8OA9tlRTB5-vQp20jCO4nM
 ###
 GET {{host}}:{{port}}{{apiStaff}}/perfil
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDIwMDUsImlhdCI6MTY5MDIxMzIwNX0.1SeVdPcLo5Ln1PvIOM-nL8OA9tlRTB5-vQp20jCO4nM
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJleHAiOjE2OTA0MTEzODAsImlhdCI6MTY5MDM4MjU4MH0.eiTNj8HoclCoFVq0TsyfEe5HAu2r9J9nNVPGG-x6_ek
 
 ###
 POST {{host}}:{{port}}{{apiStaff}}/registro

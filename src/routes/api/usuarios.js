@@ -1,10 +1,11 @@
 const router = require("express").Router();
 
 const usuariosController = require("../../controllers/usuarios.controller");
-const { checkToken } = require("../../helpers/middlewares");
+const { checkToken, checkTokenUsuario } = require("../../helpers/middlewares");
 
 //GET
 router.get("/", checkToken, usuariosController.getAll);
+router.get("/perfil", checkTokenUsuario, usuariosController.getPerfil);
 router.get("/:usuarioId", checkToken, usuariosController.getById);
 router.get("/dni/:dniusuario", checkToken, usuariosController.getByDni);
 
