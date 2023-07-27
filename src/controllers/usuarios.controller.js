@@ -84,7 +84,12 @@ const login = async (req, res) => {
       return res.json({ fatal: "No hay usuario con ese email" });
     }
     const user = usuarios[0];
-    //Comprobar si las password coinciden
+
+    if (user.aceptada === 0) {
+      return res.json({ fatal: "No has sido aceptado" })
+    }
+
+
     const passwordIguales = bcrypt.compareSync(
       req.body.password,
       user.password
